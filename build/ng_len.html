@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/ng_lea.css"/>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
+        <h1>Hello {{ clock.now | date:'y-M-d,hh:m:s'}}!</h1>
+    </div>
+    <tot></tot>
+</div>
+<script type="text/javascript" src="../js/ng-learn.js"></script>
+</body>
+</html>

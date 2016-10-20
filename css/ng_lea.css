@@ -1,0 +1,22 @@
+
+.tot-box{
+    border: 1px solid black;
+    background: #c0a16b;
+    border-radius: 8px;
+    font-size: 0;
+}
+
+.tot-box .tot-item{
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 19.9%;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+}
+
+.tot-box .tot-item:last-child{
+    border-right: none;
+}

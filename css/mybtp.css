@@ -1,0 +1,48 @@
+.dig{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.dig-tr,
+.dig-wait{
+    transition: opacity 1s linear 0s;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.dig-wait{
+    border: 1px solid #666;
+    color:#666;
+    border-radius: 75px;
+    vertical-align: middle;
+    opacity: 0;
+    margin-left: -150px;
+}
+
+.dig-wait ul{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dig:hover{
+    cursor: pointer;
+}
+
+.dig:hover .dig-tr{
+    opacity: 0;
+}
+
+.dig:hover .dig-wait{
+    opacity: 1;
+}
+
+.dig-tr p{
+    font-size: 75px;
+}
