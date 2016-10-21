@@ -1,5 +1,5 @@
 html,body{height:100%}
-body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,figure,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img {border:0;}
 address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
@@ -8,7 +8,11 @@ capation,th{text-align:left;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
 q:before, q:after{content:' '}
 abbr,acronym{border:0;}
+/**
+ * Remove most spacing between table cells.
+ */
 
+table{border-collapse: collapse;border-spacing: 0;}
 
 
 .f12{font-size:12px;}
@@ -138,3 +142,9 @@ abbr,acronym{border:0;}
 
 .justify_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
 .vl-mid{display: inline-block;width: 0;height: 100%;vertical-align: middle;}
+a:active,a:hover {outline: 0;}
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {overflow: hidden;}

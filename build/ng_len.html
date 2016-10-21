@@ -4,15 +4,30 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/ng_lea.css"/>
+    <link rel="stylesheet" href="../plug/ng-progress/nprogress.css">
+    <link rel="stylesheet" href="../plug/icheck/css/skins/all.css">
+
+    <!--<script src="../js/jquery.min.js"></script>-->
     <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <!--<script src="../plug/ng-progress/nprogress.js"></script>-->
+    <!--<script src="../plug/icheck/icheck.min.js"></script>-->
 </head>
-<body>
-<div ng-app="myApp">
-    <div ng-controller="MyController">
-        <h1>Hello {{ clock.now | date:'y-M-d,hh:m:s'}}!</h1>
-    </div>
-    <tot></tot>
+<body ng-app="myApp">
+<div class="header">封连祥的angular网站</div>
+<div class="content"  ng-controller="MyController">
+    <ul>
+        <li class="item"><a href="#/home">主页</a></li>
+        <li class="item"><a href="#/login">登录</a></li>
+        <li class="item"><a href="#/total">统计</a></li>
+    </ul>
+    <div ng-view></div>
+    <!--<button ng-click="progress()">进度条</button>-->
+    <!--<input type="radio" ng-model="paomian" value="kangshifu" ng-icheck>-->
 </div>
-<script type="text/javascript" src="../js/ng-learn.js"></script>
+<div class="footer">公司地址@世纪大道2001号</div>
+<!--<script type="text/javascript" src="../js/ng-learn/ng-route.js"></script>-->
+<!--<script TYPE="text/javascript" src="../js/ng-learn/ng-icheck.js"></script>-->
+<script type="text/javascript" src="../js/ng-learn/ng-controller.js"></script>
 </body>
 </html>
