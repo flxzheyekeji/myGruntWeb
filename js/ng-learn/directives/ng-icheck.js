@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2016/10/21.
  */
-angular.module("appMpp.directive",[]).directive('ngIcheck', function($compile) {
+angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
     return {
         restrict : 'A',
         require : '?ngModel',

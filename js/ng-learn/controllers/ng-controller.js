@@ -4,7 +4,7 @@
 /*怎么将controller和route分到两个文件里呢，我草迷茫了。到底是他妈哪里错了。
 * */
 
-angular.module("myApp.controllers",["ngRoute"])
+angular.module("myApp.controllers",["ngRoute","myApp.directive"])
 .controller("MyController",function($scope,$location){
     $scope.$on("$viewContentLoaded",function(){
         console.log("ng-view content loaded!");
@@ -17,7 +17,7 @@ angular.module("myApp.controllers",["ngRoute"])
 
     $scope.progress = function(){
         NProgress.start();
-        setTimeout(NProgress.done,3500)
+        setTimeout(NProgress.done,3500);
     };
 })
 .controller("loginController",function($scope){
@@ -25,7 +25,7 @@ angular.module("myApp.controllers",["ngRoute"])
 
     }
 })
-.controller("totleController",function($scope){
+.controller("totleController",["$scope",function($scope){
 
     $scope.tot = {
         name:"jili",
@@ -35,6 +35,6 @@ angular.module("myApp.controllers",["ngRoute"])
         math:'80'
     }
 
-});
+}]);
 
 
