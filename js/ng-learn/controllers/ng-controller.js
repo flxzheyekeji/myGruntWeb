@@ -4,7 +4,7 @@
 /*怎么将controller和route分到两个文件里呢，我草迷茫了。到底是他妈哪里错了。
 * */
 
-angular.module("myApp",["ngRoute"])
+angular.module("myApp.controllers",["ngRoute"])
 .controller("MyController",function($scope,$location){
     $scope.$on("$viewContentLoaded",function(){
         console.log("ng-view content loaded!");
@@ -35,19 +35,6 @@ angular.module("myApp",["ngRoute"])
         math:'80'
     }
 
-})
-    .config(['$routeProvider',function($routeProvider){
-        $routeProvider.when('/home',{
-                templateUrl:"../temp/ng-home.html"
-            })
-            .when('/login',{
-                templateUrl:"../temp/ng-login.html",
-                //controller:'loginController'
-            }).when('/total',{
-            templateUrl:"../temp/ng-totle.html",
-            //controller:'totleController'
-        }).otherwise({
-            redirectTo:'/home'
-        })
-    }]);
+});
+
 
