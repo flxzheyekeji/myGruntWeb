@@ -1,0 +1,10 @@
+<div ng-controller="icheckController">
+    <h2>this is a check plug</h2>
+    <input type="checkbox" ng-model="check.sum" ng-icheck/>
+    <input type="text" value="{{check.sum}}"/>
+    <input type="text" value="{{check.reduce}}"/>
+    <p>
+        $ngModule.$viewValue只会返回这个空间控制的结果。不是这个icheck控制器的所有变量。也就是默认
+        check.sum =  $ngModule.$viewValue；
+    </p>
+</div>

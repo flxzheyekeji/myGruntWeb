@@ -35,6 +35,12 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive"])
         math:'80'
     }
 
+}])
+.controller("icheckController",["$scope",function($scope){
+    $scope.check = {
+        sum:true,
+        reduce:"sanduo"
+    }
 }]);
 
 

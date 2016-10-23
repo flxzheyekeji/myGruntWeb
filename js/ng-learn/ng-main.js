@@ -12,6 +12,9 @@ angular.module("myApp",["myApp.controllers"])
         }).when('/total',{
         templateUrl:"../temp/ng-totle.html",
         controller:'totleController'
+    }).when('/check',{
+        templateUrl:"../temp/ng-icheck.html",
+        controller:"icheckController"
     }).otherwise({
         redirectTo:'/home'
     })

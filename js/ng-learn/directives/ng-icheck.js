@@ -3,7 +3,7 @@
  */
 angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
     return {
-        restrict : 'A',
+        restrict : 'AE',
         require : '?ngModel',
         link : function($scope, $element, $attrs, $ngModel) {
             if (!$ngModel) {
