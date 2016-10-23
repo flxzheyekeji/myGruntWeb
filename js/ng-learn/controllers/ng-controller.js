@@ -4,7 +4,7 @@
 /*怎么将controller和route分到两个文件里呢，我草迷茫了。到底是他妈哪里错了。
 * */
 
-angular.module("myApp.controllers",["ngRoute","myApp.directive"])
+angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"])
 .controller("MyController",function($scope,$location){
     $scope.$on("$viewContentLoaded",function(){
         console.log("ng-view content loaded!");
@@ -41,6 +41,10 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive"])
         sum:true,
         reduce:"sanduo"
     }
+}])
+.controller("GradesController",["$scope","gradesService",function($scope,gradesService){
+    //$scope.students = gradesService.getRecrode("flx");
+    $scope.students = [{name:"dfsd"},{name:"sdf"}]
 }]);
 
 

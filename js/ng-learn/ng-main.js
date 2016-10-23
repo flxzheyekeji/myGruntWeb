@@ -15,6 +15,9 @@ angular.module("myApp",["myApp.controllers"])
     }).when('/check',{
         templateUrl:"../temp/ng-icheck.html",
         controller:"icheckController"
+    }).when('/grade',{
+        templateUrl:"../temp/ng-table.html",
+        controller:"GradesController"
     }).otherwise({
         redirectTo:'/home'
     })
