@@ -43,8 +43,11 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
     }
 }])
 .controller("GradesController",["$scope","gradesService",function($scope,gradesService){
-    //$scope.students = gradesService.getRecrode("flx");
-    $scope.students = [{name:"dfsd"},{name:"sdf"}]
+    gradesService.getRecrode().success(function(data,status,headers,config){
+         $scope.students = data;
+    }).error(function(data,status,headers,config){
+        console.log("get grades with something wrong!");
+    });
 }]);
 
 
