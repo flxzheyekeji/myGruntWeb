@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/base.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/ng_lea.css"/>
     <link rel="stylesheet" href="../plug/ng-progress/nprogress.css">
     <link rel="stylesheet" href="../plug/icheck/css/skins/all.css">
@@ -10,8 +11,12 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/angular.min.js"></script>
     <script src="../js/angular-route.min.js"></script>
+    <!--tool-->
+    <script src="../js/lodash.js"></script>
+    <!--plug-->
     <script src="../plug/ng-progress/nprogress.js"></script>
     <script src="../plug/icheck/icheck.min.js"></script>
+    <script src="../plug/pagenation/tm.pagination.js"></script>
 </head>
 <body ng-app="myApp">
 <div class="header">封连祥的angular网站</div>
@@ -24,7 +29,6 @@
         <li class="item"><a href="#/grade">成绩</a></li>
     </ul>
     <div ng-view></div>
-    <button ng-click="progress()">进度条</button>
 </div>
 <div class="footer">公司地址@世纪大道2001号</div>
 <!--<script type="text/javascript" src="../js/ng-learn/ng-route.js"></script>-->

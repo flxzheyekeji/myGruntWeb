@@ -1,10 +1,8 @@
 /**
  * Created by Administrator on 2016/10/20.
  */
-/*怎么将controller和route分到两个文件里呢，我草迷茫了。到底是他妈哪里错了。
-* */
 
-angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"])
+angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys","ngPagination"])
 .controller("MyController",function($scope,$location){
     $scope.$on("$viewContentLoaded",function(){
         console.log("ng-view content loaded!");
@@ -43,11 +41,35 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
     }
 }])
 .controller("GradesController",["$scope","gradesService",function($scope,gradesService){
+
     gradesService.getRecrode().success(function(data,status,headers,config){
-         $scope.students = data;
+        pagination(data);
     }).error(function(data,status,headers,config){
         console.log("get grades with something wrong!");
     });
+
+    $scope.paginationConf = {
+        currentPage: 1,
+        itemsPerPage: 4,
+        pagesLength: 5,
+        perPageOptions: [4, 8]
+    };
+
+    function pagination(studentList,size,index){
+        if(!pagination.data){
+            if(!_.isArray(studentList)){
+               return;
+            }
+            pagination.data = studentList
+            $scope.paginationConf.totalItems = studentList.length;
+        }
+
+        index = $scope.paginationConf.currentPage;
+        size = $scope.paginationConf.itemsPerPage;
+        $scope.students = _.chunk(pagination.data,size)[--index];
+    }
+
+    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', pagination);
 }]);
 
 

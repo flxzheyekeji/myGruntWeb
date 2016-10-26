@@ -1,12 +1,15 @@
-<table ng-controller="GradesController" class="tb-grades" border="1">
-    <caption>班级成绩单</caption>
-    <tr ng-repeat="person in students" ng-class="{even:!$even,odd:!$odd}">
-        <td>{{person.name}}</td>
-        <td>{{person.math}}</td>
-        <td>{{person.chinese}}</td>
-        <td>{{person.english}}</td>
-        <td>{{person.physical}}</td>
-        <td>{{person.chemistry}}</td>
-        <td>{{person.biology}}</td>
-    </tr>
-</table>
+<div ng-controller="GradesController">
+    <table class="tb-grades" border="1">
+        <caption>班级成绩单</caption>
+        <tr ng-repeat="person in students" ng-class="{even:!$even,odd:!$odd}">
+            <td>{{person.name}}</td>
+            <td>{{person.math}}</td>
+            <td>{{person.chinese}}</td>
+            <td>{{person.english}}</td>
+            <td>{{person.physical}}</td>
+            <td>{{person.chemistry}}</td>
+            <td>{{person.biology}}</td>
+        </tr>
+    </table>
+    <tm-pagination conf="paginationConf"></tm-pagination>
+</div>
