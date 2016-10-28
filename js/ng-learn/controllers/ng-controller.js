@@ -37,7 +37,8 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
 .controller("icheckController",["$scope",function($scope){
     $scope.check = {
         sum:false,
-        reduce:"sanduo"
+        reduce:"sanduo",
+        date:""
     }
 }])
 .controller("GradesController",["$scope","gradesService",function($scope,gradesService){

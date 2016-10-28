@@ -181,7 +181,6 @@ angular.module('ngPagination', []).directive('tmPagination',[function(){
 
             // 变更当前页
             scope.changeCurrentPage = function(item) {
-                
                 if(item == '...'){
                     return;
                 }else{

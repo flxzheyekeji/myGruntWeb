@@ -7,4 +7,8 @@
         $ngModule.$viewValue只会返回这个空间控制的结果。不是这个icheck控制器的所有变量。也就是默认
         check.sum =  $ngModule.$viewValue；
     </p>
+    <div class="input-prepend input-group">
+        <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+        <input type="text" readonly="true" date-picker ng-model="check.date" class="form-control" value="10/28/2016">
+    </div>
 </div>
