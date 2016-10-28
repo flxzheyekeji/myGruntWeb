@@ -36,7 +36,7 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
 }])
 .controller("icheckController",["$scope",function($scope){
     $scope.check = {
-        sum:true,
+        sum:false,
         reduce:"sanduo"
     }
 }])
@@ -52,7 +52,10 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
         currentPage: 1,
         itemsPerPage: 4,
         pagesLength: 5,
-        perPageOptions: [4, 8]
+        perPageOptions: [4, 8],
+        onChange:function(){
+            pagination();
+        }
     };
 
     function pagination(studentList,size,index){
@@ -69,7 +72,7 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
         $scope.students = _.chunk(pagination.data,size)[--index];
     }
 
-    $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', pagination);
+    //$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', pagination);
 }]);
 
 
