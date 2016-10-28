@@ -31,4 +31,23 @@ angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
             });
         },
     };
-});
+}).directive("datePicker",function(){
+    return{
+        restrict : 'AE',
+        replace:false,
+        scope:{
+            dateConf:"=dateConfig"
+        },
+        link:function(scope, element, attrs){
+            var conf =  scope.dateConf;
+            $(element).daterangepicker({
+                singleDatePicker:conf.singleDatePicker,
+                timePicker: conf.timePicker,
+                timePickerIncrement: conf.timePickerIncrement,
+                format:conf.format,
+                startDate:conf.startDate
+            },function(start, end, label){
+                //    do something after select date.
+            });
+        }
+    }});

@@ -35,10 +35,23 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
 
 }])
 .controller("icheckController",["$scope",function($scope){
+
     $scope.check = {
         sum:false,
-        reduce:"sanduo",
-        date:""
+        reduce:"sanduo"
+    }
+
+    $scope.dateConfig = {
+        singleDatePicker: true,
+        timePicker: true,
+        timePickerIncrement: 30,
+        format: 'YYYY-MM-DD',
+        startDate:timeNow()
+    }
+
+    function timeNow(){
+        var time = new Date();
+        return time.getFullYear() + "-" + (time.getMonth()+1) + "-" + time.getDay();
     }
 }])
 .controller("GradesController",["$scope","gradesService",function($scope,gradesService){
