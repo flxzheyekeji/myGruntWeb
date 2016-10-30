@@ -1,3 +1,4 @@
+body{font-family: "Microsoft YaHei", 微软雅黑, sans-serif;}
 .dig{
     width: 150px;
     height: 150px;
@@ -46,3 +47,104 @@
 .dig-tr p{
     font-size: 75px;
 }
+
+/*定义导航条
+____________________________________________________________________________________________*/
+.title{
+    background: rgb(34,130,240);
+}
+.mynav{
+    margin:0;
+}
+.catalogue{
+    font-size: 0;
+    margin: 0;
+}
+.catalogue li{
+    display: inline-block;
+    font-size: 16px;
+}
+.catalogue li a{
+    padding:15px 10px;
+    margin: 0 5px;
+    color:white;
+    border-bottom: 2px solid transparent;
+    font-weight: bolder;
+    text-decoration: none;
+    line-height: 50px;
+}
+.catalogue li.active a{
+    border-bottom-color: rgb(34,200,200);
+}
+.catalogue li a:hover{
+    background: transparent;
+    color:white;
+    border-bottom-color: rgb(34,200,200);
+}
+.navbar-brand{
+    color:white;
+}
+.navbar-toggle,
+.navbar-toggle .icon-bar{
+    border:1px solid rgb(200,200,200)
+}
+@media screen and (max-width: 768px){
+    .catalogue{
+        float: left;
+    }
+    .catalogue li{
+        display: block;
+        text-align: center;
+    }
+}
+/*part one
+_____________________________________________________________________________*/
+#part-one{
+    background: rgb(34,130,240);
+    padding:30px 0 0 0;
+}
+/*part two
+_____________________________________________________________________________*/
+.nevermore{
+    background: url(../css/img/nevermore.jpg) center no-repeat;
+    height: 600px;
+    filter: blur(9px);
+    -webkit-filter: blur(5px);
+    margin-bottom: -600px;
+}
+.lina{
+    background: url(../css/img/lina.jpg) center no-repeat;
+    height: 600px;
+    opacity: 0.5;
+}
+/*最后一部分
+_____________________________________________________________________________*/
+
+#part-last{
+    padding: 20px 0 80px;
+}
+.explain .tit{
+    font-size: 24px;
+    color:rgb(161, 161, 161);
+}
+.explain .item{
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in 0s;
+}
+.explain .item:hover{
+    padding-left: 5px;
+}
+.explain li a{
+    color:rgb(68,68,68);
+    line-height: 40px;
+}
+.explain li a:hover{
+    text-decoration: none;
+    color:#2a6496;
+}
+.explain li a:checked{
+    text-decoration: none;
+}
+
+

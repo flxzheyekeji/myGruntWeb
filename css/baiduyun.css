@@ -134,7 +134,6 @@
     border-left: 100px solid #2aabd2;
     display: inline-block;
     vertical-align: top;
-    box-sizing: border-box;
 }
 
 .addo-two{
@@ -144,7 +143,6 @@
     border-left: 100px solid #245269;
     display: inline-block;
     vertical-align: top;
-    box-sizing: border-box;
 }
 
 .addo-three{
@@ -154,7 +152,6 @@
     border-left: 100px solid #CC00FF;
     display: inline-block;
     vertical-align: top;
-    box-sizing: border-box;
 }
 
 .addo-box .addo-checked{
