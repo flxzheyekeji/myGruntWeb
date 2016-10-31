@@ -1,4 +1,7 @@
 body{font-family: "Microsoft YaHei", 微软雅黑, sans-serif;}
+.navbar-collapse.in{
+    overflow: hidden;
+}
 .dig{
     width: 150px;
     height: 150px;
@@ -12,7 +15,6 @@ body{font-family: "Microsoft YaHei", 微软雅黑, sans-serif;}
     text-align: center;
     display: inline-block;
     font-size: 12px;
-    text-align: center;
     width: 100%;
     height: 100%;
     vertical-align: top;
@@ -105,20 +107,227 @@ _____________________________________________________________________________*/
 }
 /*part two
 _____________________________________________________________________________*/
+#part-two{
+    height: 600px;
+}
 .nevermore{
     background: url(../css/img/nevermore.jpg) center no-repeat;
     height: 600px;
     filter: blur(9px);
     -webkit-filter: blur(5px);
     margin-bottom: -600px;
+    background-size: cover;
 }
 .lina{
-    background: url(../css/img/lina.jpg) center no-repeat;
+    background: url(../css/img/lina.jpg) repeat-x;
     height: 600px;
     opacity: 0.5;
+    background-size: cover;
+    background-position-x: -20px;
+    background-position-y: 50%;
+    padding:50px 0;
+    margin-bottom: -600px;
 }
-/*最后一部分
+.btn-friend{
+    border:1px solid white;
+    border-radius: 3px;
+    background: transparent;
+    text-align: center;
+    color:white;
+    line-height: 40px;
+    font-size: 18px;
+    width: 185px;
+    margin:80px auto;
+    position: relative;
+    transition: all 0.3s ease-in;
+    display: block;
+}
+.btn-friend .show-QR{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 185px;
+    height: 40px;
+    opacity: 0;
+}
+.btn-friend .show-QR:hover{
+    cursor: pointer;
+}
+.btn-friend:hover {
+    cursor: pointer;
+    background: white;
+    color:rgb(34,240,240);
+}
+.btn-friend i{
+    display: inline-block;
+    margin-left: 8px;
+    width: 18px;
+    height: 18px;
+}
+.btn-friend:hover .QR{
+    display: block;
+}
+.btn-friend .show-QR:checked + .QR{
+    display: block;
+}
+.btn-friend .QR{
+    position: absolute;
+    top:52px;
+    left:72px;
+    width: 140px;
+    height: 140px;
+    border:1px solid black;
+    border-radius: 5px;
+    background: url(../css/img/liantu.png) 50% 50% no-repeat;
+    background-size: cover;
+    transition: all 0.3s ease-in;
+    display: none;
+}
+.btn-friend .QR:after{
+    content: "";
+    position: absolute;
+    top:-10px;
+    left:60px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(45deg);
+    border-left:1px solid black;
+    border-top:1px solid black;
+    background: white;
+}
+
+.btn-search{
+    width: 500px;
+    height: 50px;
+    border:3px solid #2e33df;
+    margin: 200px auto;
+    position: relative;
+    font-size: 0;
+    box-sizing: content-box;
+}
+.btn-search input{
+    display: inline-block;
+    height: 100%;
+    width: 450px;
+    font-size: 18px;
+    box-sizing: border-box;
+    border:none;
+    padding:0 10px;
+}
+.btn-search .icon{
+    float:right;
+    width:50px;
+    height: 100%;
+    border-left:2px solid black;
+    box-sizing: border-box;
+    font-size: 35px;
+    text-align: center;
+    background-color: cadetblue;
+}
+.btn-search .icon:hover{
+    cursor: pointer;
+}
+.btn-login{
+
+}
+/*第三部分
 _____________________________________________________________________________*/
+#part-three{
+    height: 350px;
+    background-image:linear-gradient(158deg, #8a7e9f 0%,#debfb5 35%,#c39791 50%,#3f5381 100%);
+    padding: 30px 0;
+}
+
+.login-panel{
+    margin: 0 auto;
+    width: 217px;
+    height:250px;
+    opacity: 0.48;
+    border-top:1px solid #fff;
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.5);
+    background-color: #524c4e;
+    border-radius: 3px;
+}
+.login-panel .lg-title{
+    line-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    text-align: center;
+    color: white;
+}
+.login-panel .lg-body{
+    border-top:1px solid #fff;
+}
+
+.lg-body .lg-name,
+.lg-body .lg-passworld{
+    border-bottom: 1px solid #fff;
+    width: 162px;
+    height: 34px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px 3px rgba(0,0,0,0.5) inset;
+    border-radius: 3px;
+    margin:18px auto;
+}
+
+.lg-body .lg-name i,
+.lg-body .lg-passworld i{
+    display: inline-block;
+    font-size: 18px;
+    color:white;
+    line-height: 33px;
+    padding:0 5px;
+}
+
+.lg-body .lg-name input,
+.lg-body .lg-passworld input{
+    border: none;
+    background: transparent;
+    display: inline-block;
+    height: 33px;
+    line-height: 33px;
+    color: white;
+    outline:none;
+    width: 125px;
+}
+
+.lg-body .lg-forget{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.lg-body .lg-forget a{
+    color:white;
+}
+
+.lg-body .lg-forget a:hover{
+    text-decoration: none;
+}
+.lg-body .btn-login{
+    display: block;
+    margin:9px auto;
+    height: 34px;
+    width: 160px;
+    border-top:1px solid white;
+    border-radius: 3px;
+    line-height: 34px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px 3px rgba(0,0,0,0.5);
+    background-image: linear-gradient(0deg,#54761d 0%, #6a9324 100%);
+    text-align: center;
+    color:white;
+}
+
+.lg-body .btn-login:hover{
+    text-decoration: none;
+}
+
+
+
+
+    /*最后一部分
+    _____________________________________________________________________________*/
 
 #part-last{
     padding: 20px 0 80px;

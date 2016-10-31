@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>连祥作品</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/base.css">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font/iconfont.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/mybtp.css">
 </head>
 <body>
@@ -84,8 +85,8 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pt20 pb20">
                 <div class="dig">
                     <div class="dig-tr">
-                        <p>3</p>
-                        <div>
+                            <p>3</p>
+                            <div>
                             grunt
                         </div>
                     </div>
@@ -112,9 +113,79 @@
                         <div class="vl-mid"></div>
                         <ul>
                             <li>my github</li>
-                            <li>flxzheyekeji\myGruntWeb</li>
+                            <li>myGruntWeb</li>
                             <li>make web</li>
                             <li>yourself web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pt20 pb20">
+                <div class="dig">
+                    <div class="dig-tr">
+                        <p>5</p>
+                        <div>
+                            css
+                        </div>
+                    </div>
+                    <div class="dig-wait">
+                        <div class="vl-mid"></div>
+                        <ul>
+                            <li>张鑫旭博客</li>
+                            <li>大漠css3博客</li>
+                            <li>css3秘密花园</li>
+                            <li>css基础教程</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pt20 pb20">
+                <div class="dig">
+                    <div class="dig-tr">
+                        <p>6</p>
+                        <div>
+                            html
+                        </div>
+                    </div>
+                    <div class="dig-wait">
+                        <div class="vl-mid"></div>
+                        <ul>
+                            <li>new tips</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pt20 pb20">
+                <div class="dig">
+                    <div class="dig-tr">
+                        <p>7</p>
+                        <div>
+                            lodash
+                        </div>
+                    </div>
+                    <div class="dig-wait">
+                        <div class="vl-mid"></div>
+                        <ul>
+                            <li>tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pt20 pb20">
+                <div class="dig">
+                    <div class="dig-tr">
+                        <p>8</p>
+                        <div>
+                            bower
+                        </div>
+                    </div>
+                    <div class="dig-wait">
+                        <div class="vl-mid"></div>
+                        <ul>
+                            <li>IE,safair</li>
+                            <li>chrome,firfox</li>
+                            <li>window,location</li>
+                            <li>localstroe</li>
                         </ul>
                     </div>
                 </div>
@@ -125,6 +196,32 @@
 <section id="part-two">
     <div class="nevermore"></div>
     <div class="lina"></div>
+    <div class="btn-friend">
+        <input type="checkbox" class="show-QR">
+        <div class="QR"></div>
+        点击加好友 <i class="iconfont erweima">&#xe642;</i>
+    </div>
+    <div class="btn-search">
+        <input type="text" placeholder="search">
+        <i class="icon iconfont">&#xe651;</i>
+    </div>
+</section>
+<section id="part-three">
+    <div class="login-panel">
+        <div class="lg-title">sign in</div>
+        <div class="lg-body">
+            <div class="lg-name">
+                <i class="iconfont wodedingdan">&#xe655;</i>
+                <input type="text">
+            </div>
+            <div class="lg-passworld">
+                <i class="iconfont iconfont5">&#xe63a;</i>
+                <input type="password">
+            </div>
+            <p class="lg-forget"><a href="#">忘记了名字或密码</a></p>
+            <a href="build/ng_len.html" class="btn-login">登录</a>
+        </div>
+    </div>
 </section>
 <section id="part-last">
     <div class="container">
@@ -160,6 +257,20 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        function mouseplace(){
+            var k = document.body.clientWidth;
+            return  20 / k;
+        }
+
+        $(".lina").on("mousemove",function(event){
+            console.log(event.clientX);
+            var l = mouseplace();
+            $('.lina').css("background-position-x",(l*event.clientX - 20) + "px")
+       });
+    });
+</script>
 </body>
 </html>
