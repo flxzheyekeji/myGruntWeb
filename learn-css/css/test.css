@@ -1,0 +1,1395 @@
+@charset "utf-8";
+
+body {
+    font-family: 'Microsoft Yahei', "WenQuanYi Micro Hei";
+    padding:50px 20px 80px;
+}
+
+.test1 {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    letter-spacing: 0;
+    margin: 0;
+    background-color: red;
+}
+
+.test2 {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    letter-spacing: 0;
+    margin: 0;
+    background-color: green;
+}
+
+.test3 {
+    letter-spacing: -3px;
+}
+
+.tangle {
+    width:0;
+    height: 0;
+    border-top:17px solid black;
+    border-right: 15px solid transparent;
+}
+
+.test3:hover + .tangle {
+    display: none;
+}
+
+.test-section {
+    width: 100%;
+    height: 800px;
+    background: url("../images/domesrc/icon-computer.jpg");
+    padding:200px;
+}
+
+.ul-height-test {
+    background-color: gray;
+    list-style: none;
+    color:blue;
+    margin: 0;
+    height: auto;
+    vertical-align:middle;
+}
+
+.ul-height-test li {
+    list-style-type: none;
+    float: left;
+    paddding-top:4px;
+}
+
+.pseudo-class {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.pseo-class:after {
+    position: absolute;
+    content: "";
+    width:0;
+    height: 0;
+    border-top:17px solid black;
+    border-right: 15px solid transparent;
+    top:0;
+    left:180px;
+}
+
+.div-cont-text {
+    height:200px;
+    display: table-cell;
+    font-size: 24px;
+    border:1px solid gray;
+    text-align: center;
+    max-width: 800px;
+    vertical-align:middle;
+}
+
+.animative-ball {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    background-color:transparent;
+    border-radius: 50px;
+}
+
+.img-transfrom-test {
+    width: 118px;
+    height: 120px;
+    background:url("../images/domesrc1/function/icon-fun.png") no-repeat;
+    background-position: -60px -60px;
+}
+
+.left-tabs .left-tab {
+    width: 100px;
+    height: 50px;
+    border: 1px solid red;
+}
+
+.ie7-inline {
+    display: table-row;
+    height: 100px;
+    border: 1px solid red;
+}
+
+.ie7-left {
+    display: inline-block;
+    width:20px;
+    height:20px;
+    background-color: green;
+}
+
+.ie7-right {
+    display:table-cell;
+    width: 30px;
+    *width:50px;
+    height: 30px;
+    background-color: blue;
+    float: right;
+}
+
+.text-box {
+    width:300px;
+    height: 200px;
+    border: 1px solid gray;
+}
+
+.text-box .name-box {
+    float: left;
+}
+
+/*上面的测试没有写明是什么东西，造成复习的时候很乱。以后要加上有意义的名字或者是注释*/
+
+/*css也支持全屏显示可以修改元素在full-screen下的样式*/
+.fs-img:-webkit-full-screen {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.fs-img:-moz-full-screen {
+    background-color: #fff;
+}
+
+/*--------------背景图片叠加---------------------*/
+/*说明一下，一个块状元素是允许有多个背景图片的*/
+.bg-more-pic {
+    height: 200px;
+    border:1px solid yellow;
+    background:url("../images/domesrc2/icon-jd.png") 0 0 no-repeat,
+    url("../images/domesrc2/icon-kh.png") 100px 0 no-repeat,
+    url("../images/domesrc2/icon-kq.png") 200px 0px no-repeat;
+}
+
+.img-cross-fade {
+    width: 81px;
+    height: 81px;
+    background-image: -webkit-cross-fade(url(../images/domesrc2/icon-jd.png),
+    url(../images/domesrc2/icon-kq.png), 50%);
+}
+
+/*-------------------------3d旋转------------------------------*/
+/*------------------透视-----------------*/
+.transform-test .trnfom {
+    margin:30px auto;
+    width: 81px;
+    height:81px;
+    background:url("../images/domesrc2/icon-jd.png") no-repeat;
+}
+
+.transform-test .item1 {
+    transform: perspective(200px) rotateX(45deg) rotate(90deg);
+    -webkit-transform: perspective(200px) rotateX(45deg) rotate(90deg);
+}
+
+.transform-test .item2 {
+    transform: perspective(200px) rotate(90deg) rotateX(45deg);
+    -webkit-transform: perspective(200px) rotate(90deg) rotateX(45deg);
+}
+
+.transform-test .item3 {
+    transform: perspective(200px) rotateY(45deg) rotate(90deg);
+    -webkit-transform: perspective(200px) rotateY(45deg) rotate(90deg);
+}
+
+/*--------------------------------提交按钮----------------------------------*/
+.btn-submit {
+    display: inline-block;
+    padding:.1em 0.5em;
+    background: green;
+    text-decoration: none;
+}
+
+@keyframes dot {
+    0% { width: 0; margin-right: 1.5em; }
+    33% { width: .5em; margin-right: 1em; }
+    66% { width: 1em; margin-right: .5em; }
+    100% { width: 1.5em; margin-right: 0;}
+}
+
+.ani-dot {
+    font-family: simsun;
+    animation: dot 3s 5 step-start backwards;
+}
+
+:root .ani-dot {
+    display: inline-block;
+    width: 1.5em;
+    vertical-align: bottom;
+    overflow: hidden;
+}
+
+/*伪元素控制表单样式
+-------------------------------------------------------------------------------------------------------------------*/
+/*just for ie*/
+input[type="radio"]::-ms-check {
+    color: red;
+    background: black;
+    padding: 1em;
+}
+
+input[type="checkbox"]::-ms-check {
+    color: red;
+    background: black;
+    padding: 1em;
+}
+
+input[type="file"]::-ms-browse {
+    background: black;
+    color: red;
+    padding:0 1em;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+input[rel="ie-placeholder"]:-ms-input-placeholder {
+    color: blue;
+    font-family: 'Comic Sans MS';
+}
+
+input[rel="ie-range"]::-ms-fill-lower { background: orange; }
+input[rel="ie-range"]::-ms-fill-upper { background: green; }
+input[rel="ie-range"]::-ms-thumb { background: red; }
+input[rel="ie-range"]::-ms-ticks-after { display: block; color: blue; }
+input[rel="ie-range"]::-ms-ticks-before { display: block; color: black; }
+input[rel="ie-range"]::-ms-track { padding: 20px 0; }
+input[rel="ie-range"]::-ms-tooltip { display: block; /* display and visibility only */ }
+
+input[rel="ie-hide-icon"]::-ms-clear { display: none; }
+
+input[rel="ie-change-icon"]::-ms-clear {
+    color: red;
+    background: black;
+    padding: 1em;
+}
+
+progress[data-name="ie-pro"]::-ms-fill { background: red; }
+
+select[data-name="ie-select"]::-ms-expand {
+    padding: 2em;
+    color: red;
+    background: black;
+}
+
+/*just for chrome and safari*/
+input[type="color"]::-webkit-color-swatch-wrapper {
+    border: 2px solid red;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    opacity: 0.5;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+    padding: 1em;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    background: silver;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+    color: red; padding: 0 0.3em;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field  {
+    color: blue;
+}
+
+input[type="date"]::-webkit-datetime-edit-day-field  {
+    color: green;
+}
+
+input[type="date"]::-webkit-datetime-edit-year-field   {
+    color: purple;
+}
+
+input[type="date"]::-webkit-inner-spin-button  {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: orange;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: black;
+    color: red;
+    padding:0 1em;
+}
+
+/*hide up and down button*/
+input[type="number"]::-webkit-textfield-decoration-container { }
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[rel="chrome-placeholder"]::-webkit-input-placeholder {
+    color: blue;
+    font-family: 'Comic Sans MS';
+}
+
+input[rel="chrome-range"]::-webkit-slider-runnable-track {
+    border: 2px solid red;
+    background: green;
+    padding: 2em 0;
+}
+input[rel="chrome-range"]::-webkit-slider-thumb {
+    outline: 2px solid blue;
+}
+
+input[rel="chrome-search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+keygen::-webkit-keygen-select {
+    background: black;
+    color: red;
+}
+
+/* Hide the magnifying glass */
+input[rel="chrome-search"]::-webkit-search-results-button {
+    -webkit-appearance: none;
+}
+
+meter { -webkit-appearance: none; }
+::-webkit-meter-bar {
+    height: 50px;
+    background: white;
+    border: 2px solid black;
+}
+::-webkit-meter-optimum-value { background: green; }
+::-webkit-meter-suboptimum-value { background: orange; }
+::-webkit-meter-even-less-good-value { background: blue; }
+
+/*take care of this write style*/
+progress[data-name="chrome-pro"]{ -webkit-appearance: none; }
+::-webkit-progress-inner-element { }
+::-webkit-progress-bar { border: 2px solid black; }
+::-webkit-progress-value { background: red; }
+
+textarea[data-name="chrome-textarea"]::-webkit-resizer {
+     border: 2px solid black;
+     background: red;
+     box-shadow: 0 0 5px 5px blue;
+     outline: 2px solid yellow;
+ }
+
+/*---------for firefox-----------*/
+
+input[rel="ff-placeholder"]::-moz-placeholder {
+    color: blue;
+    font-family: 'Comic Sans MS';
+}
+
+input[rel="ff-range"]::-moz-range-track {
+    border: 2px solid red;
+    height: 20px;
+    background: orange;
+}
+input[rel="ff-range"]::-moz-range-thumb {
+    background: blue;
+    height: 30px;
+}
+
+progress[data-name="ff-pro"]::-moz-progress-bar { background: red; }
+
+
+/*box-shadow 实现等待动画
+--------------------------------------------------------------------------------------------------------------------*/
+.shadow-loading {
+    width: 32px;
+    height: 32px;
+    /*background:url(loading.gif);for other bower*/
+}
+/*这里用伪类表现市为ie不显示*/
+.shadow-loading::before {
+    content: "";
+    background: none;
+    width: 3px;
+    height: 3px;
+    margin: 14.5px 0 0 14.5px;
+    border-radius: 100%;
+    box-shadow: 0 -10px 0 1px #333,           /* 上, 1px 扩展 */
+    10px 0px #333,                /* 右 */
+    0 10px #333,                  /* 下 */
+    -10px 0 #333,                 /* 左 */
+
+    -7px -7px 0 .5px #333,        /* 左上, 0.5px扩展 */
+    7px -7px 0 1.5px #333,        /* 右上, 1.5px扩展 */
+    7px 7px #333,                 /* 右下 */
+    -7px 7px #333;                /* 左下 */
+    position: absolute;
+}
+/*----无限旋转的CSS都是使用spin作为类名以及动画关键字的-----*/
+.spin {
+    -webkit-transform: rotate(360deg);
+    -webkit-animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+.spin {
+    transform: rotate(360deg);
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+/*CSS属性选择器驱动的过滤搜索技术
+----------------------------------------------------------------------------------------------------------*/
+.data-search {
+    width:200px;
+    height:30px;
+    border:1px solid gray;
+}
+
+.data-list {
+    width:200px;
+    display: block;
+    visibility: hidden;
+    box-shadow: 0 1px #ccc,
+                1px 0 #ccc,
+                -1px 0 #ccc,
+                0 -1px #ccc;
+    overflow: hidden;
+}
+
+.data-search:focus + .data-list {
+    visibility: visible;
+}
+
+.data-list .list {
+    width:100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color:#333;
+}
+
+.data-list .list:hover {
+    background: yellow;
+    cursor: pointer;
+}
+
+/*CSS3 gradient斜向线性渐变
+----------------------------------------------------------------------------------------------------------*/
+.grad {
+    width:300px;
+    height: 300px;
+    display: inline-block;
+    border:1px solid black;
+    font-size: 20px;
+    color: black;
+    vertical-align: bottom;
+    *float:left;
+}
+/*gradient in firefox*/
+.moz-level {
+    background-image:-moz-linear-gradient(left, red 0, yellow 300px);
+}
+.moz-level-center {
+    background-image:-moz-linear-gradient(left, red 150px, yellow 150px);
+}
+.moz-vertical {
+    background-image:-moz-linear-gradient(top, red 0, yellow 300px);
+}
+.moz-tilt {
+    background-image:-moz-linear-gradient(top left, red 0, yellow 300px);
+}
+.moz-level-more {
+    background-image:-moz-linear-gradient(left, red 0, yellow 100px,
+    green 200px,blue 300px);
+}
+.moz-deg {
+    background-image:-moz-linear-gradient(15deg, red 100px, yellow 150px);
+}
+/*gradient in webkit*/
+.webkit-level {
+    background-image: -webkit-linear-gradient(left,red 0,yellow 300px);
+}
+.webkit-level-center {
+    background-image: -webkit-linear-gradient(left,red 150px,yellow 150px);
+}
+.webkit-vertical {
+    background-image:-webkit-linear-gradient(top, red 0, yellow 300px);
+}
+.webkit-tilt {
+    background-image:-webkit-linear-gradient(top left, red 0, yellow 300px);
+}
+.webkit-level-more {
+    background-image:-webkit-linear-gradient(left,red 0, yellow 100px,
+    green 200px,blue 300px);
+}
+.webkit-deg {
+    background-image:-webkit-linear-gradient(15deg, red 100px, yellow 150px);
+}
+
+/*gradient for ie*/
+/*ie10*/
+.ie10-level {
+    background-image: linear-gradient(to right, red 0%, yellow 100%);
+}
+
+.ie10-level-center {
+    background-image: linear-gradient(to right, red 50%, yellow 50%);
+}
+
+.ie10-vertical {
+    background-image: linear-gradient(to bottom, red 0%, yellow 100%);
+}
+
+.ie10-tilt {
+    background-image: linear-gradient(to right bottom, red 0%, yellow 100%);
+}
+
+.ie10-level-more {
+    background-image: linear-gradient(to right, red 0%, yellow 30%,blue 60%,green 100%);
+}
+
+.ie10-deg {
+    background-image: linear-gradient(15deg, red 0%, yellow 30%,blue 60%,green 100%);
+}
+/*ie9*/
+.ie6789-level {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#ff0000, endColorstr=#ffff00);
+}
+
+.ie6789-vertical{
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ff0000, endColorstr=#ffff00);
+}
+
+/*CSS3 径向渐变
+---------------------------------------------------------------------------------------------------------*/
+.radial-base {
+    /*background: -moz-radial-gradient(#ace, #f96, #1E90FF); firefox 已经支持不带前缀的写法*/
+    background: -webkit-radial-gradient(#ace, #f96, #1E90FF); /*只有safari需要带前缀*/
+    background: radial-gradient(#ace, #f96, #1E90FF); /*ie10+,firefox,chrome,opera*/
+}
+
+.radial-color-stop {
+    background: -webkit-radial-gradient(ellipse,#ace 5%, #f96 25%, #1E90FF 60%);
+    background: radial-gradient(ellipse,#ace 5%, #f96 25%, #1E90FF 60%);
+}
+
+.radial-position {
+    background: -webkit-radial-gradient(farthest-side at left bottom, red, yellow 50px, green);
+    background: radial-gradient( farthest-side at left bottom, red, yellow 50px, green);
+}
+/*头恋歌参数定义的是渐变范围，at 后面是圆心位置，后面是渐变色*/
+.radial-position2 {
+    background: -webkit-radial-gradient(closest-side at 20px 30px, red, yellow, green);
+    background:radial-gradient(20px 20px at 20px 30px, red, yellow, green);
+}
+
+.radial-ellipse {
+    background: -webkit-radial-gradient(closest-side at 50% 50%, red, yellow, green);
+    background:radial-gradient(20px 50px at 50% 50%, red 10%, yellow 50%, green 100%);
+}
+
+/*重复渐变色*/
+.repeat-line {
+    background: -webkit-repeating-linear-gradient(red, blue 20px, red 40px);
+    background: repeating-linear-gradient(red, blue 20px, red 40px);
+}
+
+.repeat-radial {
+    background: -webkit-repeating-radial-gradient(red, blue 20px, red 40px);
+    background: repeating-radial-gradient(red, blue 20px, red 40px);
+}
+
+.repeat-radial-pos {
+    background: -webkit-repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+    background: repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+}
+
+/*对渐变色简单应用*/
+/*其实不用谢这么复杂，现代浏览器都兼容表中形式，就是最后一个，这样写为了兼容以前的浏览器。*/
+.exp-grad-1 {
+    /*background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #555)),
+    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #555));
+    background-image: -moz-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+    -moz-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+    -moz-linear-gradient(45deg, transparent 75%, #555 75%),
+    -moz-linear-gradient(-45deg, transparent 75%, #555 75%);
+    background-image: -o-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+    -o-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+    -o-linear-gradient(45deg, transparent 75%, #555 75%),
+    -o-linear-gradient(-45deg, transparent 75%, #555 75%);*/
+    background-size: 50px 50px;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #555)),
+    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #555));
+    background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+    linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+    linear-gradient(45deg,transparent 75%,#555 75%),
+    linear-gradient(-45deg,transparent 75%,#555 75%);
+    background-repeat: repeat;
+}
+
+.exp-grad-2 {
+    background-size: 50px 50px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5))),
+    -webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, transparent), color-stop(.5, rgba(200, 0, 0, .5)), to(rgba(200, 0, 0, .5)));
+    background-image: linear-gradient(90deg,transparent 50%, rgba(200, 0, 0, .5) 50%),
+    linear-gradient(180deg,transparent 50%, rgba(200, 0, 0, .5) 50%);
+    background-repeat: repeat;
+}
+/*纯CSS实现星星评分交互效果
+---------------------------------------------------------------------------------------------------------*/
+.bg-star {
+    width: 120px;
+    height: 20px;
+    background: url(../images/star.png) repeat-x;
+    position: relative;
+    overflow: hidden;
+}
+.star {
+    height: 100%;
+    width: 24px;
+    line-height: 6em;
+    position: absolute;
+    z-index: 3;
+}
+.star:hover {
+    background: url(../images/star.png) repeat-x 0 -20px!important;
+    left: 0;
+    z-index: 2;
+}
+
+.star-1 { left: 0; }
+.star-2 { left: 24px; }
+.star-3 { left: 48px; }
+.star-4 { left: 72px; }
+.star-5 { left: 96px; }
+
+.star-1:hover { width: 24px; }
+.star-2:hover { width: 48px; }
+.star-3:hover { width: 72px; }
+.star-4:hover { width: 96px; }
+.star-5:hover { width: 120px; }
+
+.lab-start {
+    display: block;
+    _display:inline;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.score {
+    position: absolute;
+    clip: rect(0 0 0 0);
+}
+
+.score:checked + .star {
+    background: url(../images/star.png) repeat-x 0 -20px;
+    left: 0;
+    z-index: 1;
+}
+
+.score-1:checked ~ .star-1 { width: 24px; }
+.score-2:checked ~ .star-2 { width: 48px; }
+.score-3:checked ~ .star-3 { width: 72px; }
+.score-4:checked ~ .star-4 { width: 96px; }
+.score-5:checked ~ .star-5 { width: 120px;}
+
+.star-bg:hover .star {
+    background-image: none;
+}
+
+/*--------------------this is made by me!------------------------*/
+
+.my-bg-star {
+    width: 120px;
+    height: 20px;
+    background:gray;
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.bg-chosed {
+    position:absolute;
+    height: 100%;
+    width: 0;
+    left:0;
+    background-color: red;
+    z-index: 1;
+}
+
+.my-star {
+    position: absolute;
+    height: 100%;
+    width:24px;
+    background: url(../images/mystar.png) no-repeat;
+    z-index: 2;
+}
+
+.my-star-1 { left:0;}
+.my-star-2 { left: 24px; }
+.my-star-3 { left: 48px; }
+.my-star-4 { left: 72px; }
+.my-star-5 { left: 96px; }
+
+.my-star-1:hover ~ .bg-chosed,.myscore-1:checked ~ .bg-chosed {
+   width:24px;
+}
+.my-star-2:hover ~ .bg-chosed,.myscore-2:checked ~ .bg-chosed {
+    width:48px;
+}
+.my-star-3:hover ~ .bg-chosed,.myscore-3:checked ~ .bg-chosed {
+    width:72px;
+}
+.my-star-4:hover ~ .bg-chosed,.myscore-4:checked ~ .bg-chosed {
+    width:96px;
+}
+.my-star-5:hover ~ .bg-chosed,.myscore-5:checked ~ .bg-chosed {
+    width:120px;
+}
+
+.my-label {
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.my-score {
+    position: absolute;
+    clip: rect(0 0 0 0);
+}
+
+/*letter-spacing+first-letter实现按钮文字隐藏以及box-shadow
+--------------------------------------------------------------------------------------------------------*/
+.code-space {
+    font-size: 1em;
+    letter-spacing: -0.5em;
+    word-spacing: -2em;
+}
+
+.icon-up{display:inline-block; width:20px; height:20px;}
+:root .icon-up{background-image:none;}
+.icon-up::before{
+    content: ''; position: absolute; margin: 5px 0 0 9px;
+    height: 4px; border-left: 1px solid #bdbdbd;
+    box-shadow: 1px 1px #bdbdbd, 2px 2px #bdbdbd, 3px 3px #bdbdbd, 4px 4px #bdbdbd, 5px 5px #bdbdbd,
+    -1px 1px #bdbdbd, -2px 2px #bdbdbd, -3px 3px #bdbdbd, -4px 4px #bdbdbd, -5px 5px #bdbdbd;
+}
+
+/*用css过滤图片
+--------------------------------------------------------------------------------------------------------*/
+.filter-gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    filter: url(../svg/gray.svg#grayscale);
+}
+
+.blur {
+    filter: url(../svg/blur.svg#blur); /* FireFox, Chrome, Opera */
+
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+
+
+/*关于white-space。word-break,word-wrap,认识
+--------------------------------------------------------------------------------------------------------*/
+.ws-nowrap {
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+.ws-pre {
+    white-space: pre;
+    overflow-x: scroll;
+}
+
+.ws-preline {
+    white-space: pre-line;
+}
+
+.ws-prewrap {
+    white-space: pre-wrap;
+}
+
+.wb-breakall {
+    word-break: break-all;
+}
+
+.wb-keepall {
+    word-break: keep-all;
+    overflow-x: scroll;
+}
+
+.ww-breakword {
+    word-wrap: break-word;
+}
+
+.use-select{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/*CSS3与文字渐变光影流动动画效果实现
+--------------------------------------------------------------------------------------------------------*/
+
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .colors-text{
+        background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: masked-animation 4s infinite linear;
+    }
+}
+@-webkit-keyframes masked-animation {
+    0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
+}
+
+.text-gradient {
+    display: inline-block;
+    font-family: '微软雅黑';
+    font-size: 10em;
+    position: relative;
+    color: green;
+    background-image: linear-gradient(to bottom ,rgba(00,00,255,0) 0%, rgba(0, 255, 0, 1) 100%);
+    /*background-image: linear-gradient(to bottom,rgba(00,00,255,0),rgba(255,255,255,1));*/
+    opacity: .5;
+}
+
+.text-gradient[data-text]::after {
+    content: attr(data-text);
+    width: 500px;
+    height: 220px;
+    color: green;
+    background: blue;
+    position: absolute;
+    left: 0;
+    top:1em;
+    z-index: 2;
+    -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff0000), to(rgba(0, 0, 255, 0)));
+    transform:scale(1,-1);
+}
+
+/*理解CSS clear:left/right的含义
+--------------------------------------------------------------------------------------------------------*/
+
+.f-box {
+    width:500px;
+    height: 300px;
+    border:1px solid black;
+}
+
+.f-none {
+    width:50px;
+    height: 50px;
+    background: blue;
+}
+
+.f-box .f-img {
+    float:left;
+    width: 100px;
+    height: 100px;
+}
+
+.f-box .b-red {
+    border:1px solid red;
+}
+
+.f-box .cl-fl {
+    border:1px solid red;
+    clear:left;
+    vertical-align: top;
+}
+
+.f-box .cl-fr{
+    clear: right;
+}
+
+
+/*图标技术应用以及text-shadow
+--------------------------------------------------------------------------------------------------------*/
+.icon-example {
+    display: inline-block;
+    width:118px;
+    height: 118px;
+    box-sizing: border-box;
+    border:1px solid black;
+    background: url(../images/domesrc3/icon-fun.png) no-repeat;
+    background-position: -116px -116px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+:root .icon-example { background-image: none; }
+
+.sf {
+    display: block;
+    position: relative;
+    width:200px;
+    height: 200px;
+    border-top:10px solid black;
+    border-bottom:10px solid black;
+    padding:85px 0;
+    box-sizing: border-box;
+    background: red;
+    background-clip: content-box;
+}
+
+.sf::before {
+    content: "";
+    position:absolute;
+    width:10px;
+    height: 10px;
+    top:85px;
+    right:-30px;
+    background: red;
+    box-shadow: 0 -95px 5px 5px black,
+                0 95px 0 5px black;
+}
+
+.txt-shadow {
+    width:300px;
+    height: 100px;
+    font-size: 30px;
+    border:1px solid black;
+    color:transparent;
+    text-shadow: 10px 10px 5px blue;
+    background-image: linear-gradient(0deg,red,yellow);
+    transform: scale(1,-1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/*图标技术应用
+-------------------------------------------------------------------------------------------------------*/
+
+
+/*height:inherit
+-------------------------------------------------------------------------------------------------------*/
+.hi-mh {
+    width: 200px;
+    min-height: 200px;
+    border:1px solid black;
+}
+
+.hi-mh .h-100p {
+    height: 100%;
+    width:100px;
+    background: blue;
+}
+
+.hi-mh .h-inherit {
+    height: inherit;
+    width:100px;
+    background: blue;
+}
+
+.bd-otl {
+    width:120px;
+    height: 120px;
+    border:40px dotted blue;
+    box-sizing: border-box;
+    outline:40px solid blue;
+    margin:40px;
+}
+
+/*IE矩阵滤镜Matrix旋转与缩放及结合transform的拓展
+-------------------------------------------------------------------------------------------------------*/
+
+.scale-trans {
+    width:300px;
+    height: 300px;
+    border:1px solid black;
+    background: url(../images/domesrc4/ios-download-200.png) no-repeat;
+    filter:progid:DXImageTransform.Microsoft.Matrix(M11=-0.707,M12=-0.707,M21=0.707,M22=-0.707,SizingMethod='auto expand');
+}
+
+
+/*css3动画研究
+-------------------------------------------------------------------------------------------------------*/
+.explore-animate-out {
+    position: relative;
+    margin-top:20px;
+    border:1px solid black;
+    height: 50px;
+}
+
+.explore-animate-inner {
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    top:0;
+    left:0;
+    background: red;
+}
+/*animation-timing-function*/
+
+@keyframes timing {
+    100%{
+        left:300px;
+    }
+}
+
+.timing-linear {
+    animation: timing 5s linear 0s infinite;
+}
+
+.timing-ease {
+    animation: timing 5s ease 0s infinite;
+}
+
+.timing-ease-in {
+    animation: timing 5s ease-in 0s infinite;
+}
+
+.timing-ease-out {
+    animation: timing 5s ease-out 0s infinite;
+}
+
+.timing-ease-in-out {
+    animation: timing 5s ease-in-out 0s infinite;
+}
+
+.timing-cb-01{
+    animation: timing 5s cubic-bezier(0,0,0.5,0.9) 0s infinite;
+}
+
+.timing-cb-02{
+    animation: timing 5s cubic-bezier(0.25,0.1,0.1,1) 0s infinite;
+}
+
+.timing-cb-alt {
+    animation: timing 5s cubic-bezier(0.25,0.1,0.1,1) 0s infinite alternate;
+}
+
+@keyframes more-step {
+    20%{
+        left:50px;
+    }
+    50%{
+        left:100px;
+    }
+    60% {
+        left:30px;
+    }
+    75%{
+        left:200px;
+    }
+}
+
+.fd-none{
+    animation: more-step 5s linear 0s 1 none;
+}
+.fd-forwards {
+    animation: more-step 5s linear 0s 1 forwards;
+}
+
+.fd-backwards {
+    animation: more-step 5s linear 2s 1 backwards;
+}
+
+/*text-shadow知多少
+---------------------------------------------------------------------------------------*/
+.sm-grid{
+    width:100px;
+    line-height: 100px;
+    background: gray;
+    text-align: center;
+    font-size: 40px;
+    color:white;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    display: inline-block;
+}
+
+.ts-one {
+    text-shadow: 0 0 20px red;
+}
+
+.ts-two {
+    text-shadow:0 0 5px blue, 0 0 10px blue, 0 0 15px blue, 0 0 40px #ff00de, 0 0 70px #ff00de;
+}
+
+.ts-three {
+    text-shadow: 0 1px 1px yellow, 0 2px 2px yellow;
+}
+
+.ts-four {
+    color: #ccc;
+    text-shadow: -1px -1px 0 #fff,1px 1px 0 #333,1px 1px 0 #444;
+}
+.ts-5 {
+    color: transparent;
+    text-shadow:0 0 6px #F96, -1px -1px  #FFF, 1px -1px  #444;
+}
+
+.ts-3d-1 {
+    color: #fff;
+    text-shadow: 1px 1px rgba(197, 223, 248,0.8),2px 2px rgba(197, 223, 248,0.8),3px 3px rgba(197, 223, 248,0.8),4px 4px rgba(197, 223, 248,0.8),5px 5px rgba(197, 223, 248,0.8),6px 6px rgba(197, 223, 248,0.8);
+}
+
+.ts-3d-2 {
+    color: #fff;
+    text-shadow: -1px -1px rgba(197, 223, 248,0.8),-2px -2px rgba(197, 223, 248,0.8),-3px -3px rgba(197, 223, 248,0.8),-4px -4px rgba(197, 223, 248,0.8),-5px -5px rgba(197, 223, 248,0.8),-6px -6px rgba(197, 223, 248,0.8);
+}
+
+.ts-3d-3 {
+    color: #eee;
+    text-shadow: 5px 5px 0 #666, 7px 7px 0 #eee;
+}
+
+.ts-3d-4 {
+    color: rgba(255, 179, 140,0.5);
+    text-shadow: 3px 3px 0 rgba(180,255,0,0.5);
+}
+
+/*box-shadow知多少
+---------------------------------------------------------------------------------------*/
+.bs-grid {
+    width: 300px;
+    height: 300px;
+    background:gray;
+    margin: 30px;
+    box-sizing: border-box;
+}
+
+.bs-bimg {
+    border-image: url(../images/border.png) 27 27 27 27 / 34px  repeat stretch;
+    box-shadow: 10px 10px 0 5px black;
+}
+
+.bs-stack {
+    box-shadow:4px 4px 0 5px blue, 7px 7px 0 5px red,10px 10px 0 5px black;
+}
+
+.bs-inner-sdw {
+    padding:20px;
+    border-image: url(../images/border.png) 27 27 27 27 / 34px  repeat stretch;
+    box-shadow: 30px 30px 0 5px black inset,10px 10px 0 5px black;
+    background-image: url(../images/domesrc/firm_address.jpg);
+    background-repeat: no-repeat;
+    outline: 10px solid blue;
+    outline-offset: -40px;
+    border-radius: 30px;
+}
+
+/*css3 transform知多少
+---------------------------------------------------------------------------------------*/
+.transf-skew {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    transform: skew(30.2deg,0deg);
+    background: -webkit-radial-gradient(ellipse,#ace 5%, #f96 25%, #1E90FF 100%);
+    background: radial-gradient(100% 100% at 30px 30px ,#ace 5%, #f96 25%, #1E90FF 100%);
+    box-shadow: 5px 5px 5px 0 gray;
+}
+
+.transf-translate {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    transform: translate(-50%);
+    margin-left:50%;
+}
+
+.transf-origin {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    transform-origin: 0 0;
+    transform: rotate(45deg);
+    margin-left:55px;
+}
+
+/*css3 Transition知多少
+---------------------------------------------------------------------------------------*/
+.transi-opacity{
+    width:100px;
+    height: 100px;
+    background: blue;
+    transition-property: opacity,margin-left;
+    transition-duration: 2s,2s;
+    transition-delay: 0.5s,0.5s;
+    transition-timing-function: ease;
+}
+
+.transi-opacity:hover {
+    margin-left: 50px;
+    opacity: 0.3;
+}
+
+.transi-exp {
+    width:100px;
+    height: 100px;
+    margin:20px;
+    border:1px solid red;
+    border-radius: 50px;
+    transition-property: transform,opacity;
+    transition-duration: 1s,1s;
+    transition-delay: 0.5s,0.5s;
+    transition-timing-function: ease,ease;
+}
+
+.transi-exp:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 10px rgba(255,0,0,1);
+    opacity:0;
+}
+
+/*ie盒子模型知多少
+---------------------------------------------------------------------------------------*/
+.ie-box-module {
+    width:300px;
+    height:300px;
+    background:red;
+    padding:50px;
+    border:50px solid black;
+    box-sizing: border-box;
+}
+
+/*CSS3 @font-face
+---------------------------------------------------------------------------------------*/
+
+
+
+/*background-clip知多少
+---------------------------------------------------------------------------------------*/
+.bkc {
+    width:200px;
+    height: 200px;
+    border:10px dotted black;
+    padding:10px;
+    background: blue;
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.bkc-bb {
+    background-clip: border-box;
+}
+.bkc-pb {
+    background-clip: padding-box;
+}
+.bkc-cb {
+    background-clip: content-box;
+}
+
+.bkc-img {
+    background-image: url(../images/firm_address.png);
+    background-repeat: no-repeat;
+}
+
+.bkc-box {
+    width:260px;
+    height:220px;
+    border: 1px solid gray;
+    background: url(../images/mrs.zhang.jpg) no-repeat;
+    background-size: cover;
+}
+
+.bkc-gap {
+    border-color:transparent;
+    outline:10px solid red;
+    margin:10px;
+    transition: margin-left 1s ease 0s;
+}
+
+.bkc-gap:hover {
+    margin-left:40px;
+}
+
+/*background-origin知多少
+---------------------------------------------------------------------------------------*/
+.bko {
+    width:200px;
+    height: 200px;
+    border:10px dotted black;
+    padding:10px;
+    background: url(../images/mrs.zhang.jpg) no-repeat;
+    background-size: cover;
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.bko-bb {
+    background-origin: border-box;
+}
+.bko-pb {
+    background-origin: padding-box;
+}
+
+.bko-pb-pst{
+    background-position: bottom right;
+}
+
+.bko-cb {
+    background-origin: content-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
