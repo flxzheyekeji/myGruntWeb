@@ -3,8 +3,8 @@
  */
 angular.module("myApp",["myApp.controllers"])
     .config(['$routeProvider',function($routeProvider){
-    $routeProvider.when('/home',{
-            templateUrl:"../temp/ng-home.html"
+    $routeProvider.when('/map',{
+            templateUrl:"../temp/ng-map.html"
         })
         .when('/login',{
             templateUrl:"../temp/ng-login.html",
@@ -18,7 +18,11 @@ angular.module("myApp",["myApp.controllers"])
     }).when('/grade',{
         templateUrl:"../temp/ng-table.html",
         controller:"GradesController"
+    }).when('/multiple',{
+        templateUrl:"../temp/ng-multiple.html"
+    }).when('/print',{
+        templateUrl:"../temp/ng-print.html"
     }).otherwise({
-        redirectTo:'/home'
+        redirectTo:'/login'
     })
 }]);

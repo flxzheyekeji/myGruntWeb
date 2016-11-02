@@ -111,15 +111,19 @@ _____________________________________________________________________________*/
     height: 600px;
 }
 .nevermore{
-    background: url(../css/img/nevermore.jpg) 0% 50% repeat-x;
+    background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+    linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+    linear-gradient(45deg,transparent 75%,#555 75%),
+    linear-gradient(-45deg,transparent 75%,#555 75%);
+    background-size: 50px 50px;
+    background-repeat: repeat;
     height: 600px;
-    -webkit-filter: blur(5px);
     margin-bottom: -600px;
 }
 .lina{
-    background: url(../css/img/lina.jpg) 0% 50% repeat-x;
+    background-image:repeating-radial-gradient(red, blue 20px, red 40px);
     height: 600px;
-    opacity: 0.5;
+    opacity: 0.8;
     padding:50px 0;
     margin-bottom: -600px;
 }
@@ -191,6 +195,11 @@ _____________________________________________________________________________*/
     background: white;
 }
 
+@media screen and (max-width: 600px){
+    .btn-search{
+        display: none;
+    }
+}
 .btn-search{
     width: 500px;
     height: 50px;
