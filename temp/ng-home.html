@@ -1,1 +1,54 @@
-<img src="../css/img/baidunyun/naslovna_slika_1.jpg" alt="背景图片" width="100%">
+<div class="container">
+    <span>出行方式</span>
+    <select class="go-away">
+        <option value="walking" selected>步行</option>
+        <option value="driving">自驾</option>
+        <option value="transit">公交</option>
+    </select>
+    <span>起点</span>
+    <input data-start="startPoint" type="text" placeholder="起点" class="start-point">
+    <span>终点</span>
+    <input data-end="endPoint" type="text" placeholder="终点" class="end-point">
+    <button id="map_search">查询</button>
+</div>
+<div id="myMap" class="my-map"></div>
+<script type="text/javascript">
+    var map = new BMap.Map("myMap");
+    var point = new BMap.Point(113.662, 34.76);
+    map.centerAndZoom(point, 13);
+    map.addControl(new BMap.NavigationControl());
+    map.setCurrentCity("郑州市");
+    $("#map_search").click(function(){
+        var startPosition = $(".start-point")[0].value;
+        var endPosition = $(".end-point")[0].value;
+        var way = $(".go-away").value;
+        if(!startPosition || !endPosition){
+            return;
+        }
+        switch(way){
+            case "walking":{
+                var walker = new BMap.WalkingRoute(map, {
+                    renderOptions: {map: map}
+                });
+                walker.search(startPosition,endPosition);
+                break;
+            }
+            case "driving":{
+                var driving = new BMap.DrivingRoute(map, {
+                    renderOptions: {
+                        map: map,
+                        autoViewport: true
+                    }
+                });
+                driving.search(startPosition, endPosition);
+                break;
+            }
+            default:{
+                var transit = new BMap.TransitRoute(map, {
+                    renderOptions: {map: map}
+                });
+                transit.search(startPosition,endPosition);
+            }
+        }
+    });
+</script>

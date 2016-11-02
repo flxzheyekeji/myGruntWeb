@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/base.css">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/ng_lea.css"/>
     <link rel="stylesheet" href="../plug/ng-progress/nprogress.css">
     <link rel="stylesheet" href="../plug/icheck/css/skins/all.css">
@@ -13,6 +13,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/angular.min.js"></script>
     <script src="../js/angular-route.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!--tool-->
     <script src="../js/lodash.js"></script>
     <script src="../plug/datePicker/moment.js"></script>
@@ -21,16 +22,18 @@
     <script src="../plug/icheck/icheck.min.js"></script>
     <script src="../plug/pagenation/tm.pagination.js"></script>
     <script src="../plug/datePicker/daterangepicker.js"></script>
+    <!--map-->
+    <script type="text/javascript"  src="http://api.map.baidu.com/api?v=2.0&ak=XHTIYgiszMmfkMvQiA3wlrGkG8EbnQlp"></script>
 </head>
 <body ng-app="myApp">
 <div class="header">封连祥的angular网站</div>
-<div class="content"  ng-controller="MyController">
-    <ul>
-        <li class="item"><a href="#/home">主页</a></li>
-        <li class="item"><a href="#/login">登录</a></li>
-        <li class="item"><a href="#/total">统计</a></li>
-        <li class="item"><a href="#/check">单选</a></li>
-        <li class="item"><a href="#/grade">成绩</a></li>
+<div  ng-controller="MyController">
+    <ul class="func-list">
+        <li class="item" style="z-index: 10"><a href="#/home">地图</a></li>
+        <li class="item" style="z-index: 9"><a href="#/login">登录</a></li>
+        <li class="item" style="z-index: 8"><a href="#/total">统计</a></li>
+        <li class="item" style="z-index: 7"><a href="#/check">单选</a></li>
+        <li class="item" style="z-index: 6"><a href="#/grade">成绩</a></li>
     </ul>
     <div ng-view></div>
 </div>
