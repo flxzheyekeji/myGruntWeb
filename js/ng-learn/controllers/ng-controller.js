@@ -18,11 +18,26 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
         setTimeout(NProgress.done,3500);
     };
 })
-.controller("loginController",function($scope){
+.controller("loginController",["$scope","logonService",function($scope,logonService){
+    $scope.submitted = false;
     $scope.login = function(){
-
+        if($scope.myLogin_form.$valid){
+            logonService.getUser().success(function(data,status,headers,config){
+                if(data.name === $scope.user.name && data.password === $scope.user.password){
+                    console.log("welcome!");
+                }
+                else{
+                    console.log("go away!");
+                }
+            }).error(function(ata,status,headers,config){
+                console.log("can not get user message!");
+            });
+        }
+        else{
+            $scope.myLogin_form.submitted = true;
+        }
     }
-})
+}])
 .controller("totleController",["$scope",function($scope){
 
     $scope.tot = {
@@ -85,8 +100,6 @@ angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys"
         size = $scope.paginationConf.itemsPerPage;
         $scope.students = _.chunk(pagination.data,size)[--index];
     }
-
-    //$scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', pagination);
 }]);
 
 

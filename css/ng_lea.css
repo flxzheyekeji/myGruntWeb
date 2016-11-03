@@ -120,3 +120,7 @@
     width:200px;
     margin:80px auto 0;
 }
+
+.login-form .error{
+    color:red;
+}
