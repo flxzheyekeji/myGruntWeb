@@ -196,10 +196,21 @@
 <section id="part-two">
     <div class="nevermore"></div>
     <div class="lina"></div>
-    <div class="btn-friend">
-        <input type="checkbox" class="show-QR">
-        <div class="QR"></div>
-        点击加好友 <i class="iconfont erweima">&#xe642;</i>
+    <div class="btn-container">
+        <a class="btn-friend">
+            <input type="checkbox" class="show-QR">
+            <div class="QR"></div>
+            点击加好友 <i class="iconfont erweima">&#xe642;</i>
+        </a>
+
+        <a class="btn-apple">
+            苹果下载 <span class="ico-apple"></span>
+        </a>
+
+        <a href="#" class="btn-ico-r">
+            <i class="iconfont gouwuche">&#xe63f;</i>
+            购物车
+        </a>
     </div>
     <div class="btn-search">
         <input type="text" placeholder="search">
@@ -268,7 +279,7 @@
         $(".lina").on("mousemove",function(event){
             console.log(event.clientX);
             var l = mouseplace();
-            $('.lina').css("background-position-x",(l*event.clientX - 20) + "px")
+            $('.lina').css("background-position-x",(l*event.clientX - 20) + "px");
         });
     });
 </script>
