@@ -114,5 +114,8 @@ module.exports = angular.module("myApp.controllers",["myApp.directive","myApp.fa
                 printService.print( '<div>' + el.innerHTML + '</div>');
             }
         }
-    }]);
+    }])
+    .controller("mapController",function($scope){
+
+    });
 })
