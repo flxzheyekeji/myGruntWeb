@@ -7,7 +7,9 @@
  * MIT Licensed
  */
 
-(function($) {
+define(function(require){
+var jq = require("$");
+  (function($) {
 
   // Cached vars
   var _iCheck = 'iCheck',
@@ -506,4 +508,5 @@
       input[_callback]('ifChanged')[_callback]('if' + capitalize(callback));
     }
   }
-})(window.jQuery || window.Zepto);
+})(jq);
+})

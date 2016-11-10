@@ -2,7 +2,9 @@
  * name: tm.pagination
  * Version: 1.0.0 beta
  */
-angular.module('ngPagination', []).directive('tmPagination',[function(){
+define(function(require,module){
+    module.exports = angular.module('ngPagination', [])
+    .directive('tmPagination',[function(){
     return {
         restrict: 'EA',
         template: '<div class="page-list">' +
@@ -253,3 +255,4 @@ angular.module('ngPagination', []).directive('tmPagination',[function(){
         }
     };
 }]);
+})

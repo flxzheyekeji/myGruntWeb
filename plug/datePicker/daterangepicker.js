@@ -6,7 +6,10 @@
 * @license: Licensed under Apache License v2.0. See http://www.apache.org/licenses/LICENSE-2.0
 * @website: http://www.sucaijiayuan.com/
 */
-!function ($, moment) {
+define(function(require,exports,module){
+    var jq = require("$");
+    var moment = require("../datePicker/moment.js");
+    (function ($, moment) {
 
     var DateRangePicker = function (element, options, cb) {
 
@@ -1016,4 +1019,5 @@
         return this;
     };
 
-}(window.jQuery, window.moment);
+})(jq,moment);
+})

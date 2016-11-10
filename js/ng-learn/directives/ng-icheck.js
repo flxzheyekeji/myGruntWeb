@@ -1,7 +1,12 @@
 /**
  * Created by Administrator on 2016/10/21.
  */
-angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
+define(function(require,module){
+    var $ = require("../../../bower_components/jquery/dist/jquery");
+    require("../../../plug/icheck/icheck");
+    require();
+    module.exports = angular.module("myApp.directive",[])
+    .directive('ngIcheck', function($compile) {
     return {
         restrict : 'AE',
         require : 'ngModel',
@@ -31,8 +36,8 @@ angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
             });
         },
     };
-}).directive("datePicker",function(){
-    return{
+})
+    .directive("datePicker",function(){return{
         restrict : 'AE',
         replace:false,
         scope:{
@@ -51,3 +56,4 @@ angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
             });
         }
     }});
+})

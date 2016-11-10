@@ -12,43 +12,60 @@
     <button id="map_search">查询</button>
 </div>
 <div id="myMap" class="my-map"></div>
+<!--<script type="text/javascript" id="baidu_API"  src="http://api.map.baidu.com/api?v=2.0&ak=XHTIYgiszMmfkMvQiA3wlrGkG8EbnQlp"></script>-->
 <script type="text/javascript">
-    var map = new BMap.Map("myMap");
-    var point = new BMap.Point(113.662, 34.76);
-    map.centerAndZoom(point, 13);
-    map.addControl(new BMap.NavigationControl());
-    map.setCurrentCity("郑州市");
-    $("#map_search").click(function(){
-        var startPosition = $(".start-point")[0].value;
-        var endPosition = $(".end-point")[0].value;
-        var way = $(".go-away").value;
-        if(!startPosition || !endPosition){
-            return;
-        }
-        switch(way){
-            case "walking":{
-                var walker = new BMap.WalkingRoute(map, {
-                    renderOptions: {map: map}
-                });
-                walker.search(startPosition,endPosition);
-                break;
+//    function loadMap() {
+//        var baidu_script = document.createElement("script");
+//        baidu_script.src = "http://api.map.baidu.com/api?v=2.0&ak=XHTIYgiszMmfkMvQiA3wlrGkG8EbnQlp";
+//        document.body.appendChild(baidu_script);
+//    }
+    define(function(require,exports,module){
+        console.log("define");
+    })
+    function initMap() {
+        var map = new BMap.Map("myMap");
+        var point = new BMap.Point(113.662, 34.76);
+        map.centerAndZoom(point, 13);
+        map.addControl(new BMap.NavigationControl());
+        map.setCurrentCity("郑州市");
+        $("#map_search").click(function () {
+            var startPosition = $(".start-point")[0].value;
+            var endPosition = $(".end-point")[0].value;
+            var way = $(".go-away").value;
+            if (!startPosition || !endPosition) {
+                return;
             }
-            case "driving":{
-                var driving = new BMap.DrivingRoute(map, {
-                    renderOptions: {
-                        map: map,
-                        autoViewport: true
-                    }
-                });
-                driving.search(startPosition, endPosition);
-                break;
+            switch (way) {
+                case "walking":
+                {
+                    var walker = new BMap.WalkingRoute(map, {
+                        renderOptions: {map: map}
+                    });
+                    walker.search(startPosition, endPosition);
+                    break;
+                }
+                case "driving":
+                {
+                    var driving = new BMap.DrivingRoute(map, {
+                        renderOptions: {
+                            map: map,
+                            autoViewport: true
+                        }
+                    });
+                    driving.search(startPosition, endPosition);
+                    break;
+                }
+                default:
+                {
+                    var transit = new BMap.TransitRoute(map, {
+                        renderOptions: {map: map}
+                    });
+                    transit.search(startPosition, endPosition);
+                }
             }
-            default:{
-                var transit = new BMap.TransitRoute(map, {
-                    renderOptions: {map: map}
-                });
-                transit.search(startPosition,endPosition);
-            }
-        }
-    });
+        });
+    }
+    window.onload = function(){
+        console.log("window loaded");
+    };
 </script>
