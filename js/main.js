@@ -31,6 +31,19 @@ define(function(require, exports, module){
             }).otherwise({
                 redirectTo:'/login'
             })
-        }]);
+        }]).run(["$rootScope","$location",function($rootScope,$location){
+        $rootScope.logged = false;
+        $rootScope.$on("$routeChangeStart",function(event,next,current){
+            if(!$rootScope.logged){
+                if(next.templateUrl === "../temp/ng-login.html"){
+                }
+                else{
+                    $location.path('/login');
+                }
+            }
+        })
+    }])
+
+
     angular.bootstrap(document.body, ['myApp']);
 });

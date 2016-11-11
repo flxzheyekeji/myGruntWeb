@@ -6,7 +6,7 @@ define(function(require,module){
     require("js/ng-learn/factorys/ng-factory");
     require("../../../plug/pagenation/tm.pagination");
     require("../../../plug/datePicker/daterangepicker");
-module.exports = angular.module("myApp.controllers",["myApp.directive","myApp.factorys","ngPagination"])
+module.exports = angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys","ngPagination"])
     .controller("MyController",function($scope,$location){
         $scope.$on("$viewContentLoaded",function(){
             console.log("ng-view content loaded!");
@@ -22,13 +22,14 @@ module.exports = angular.module("myApp.controllers",["myApp.directive","myApp.fa
             setTimeout(NProgress.done,3500);
         };
     })
-    .controller("loginController",["$scope","logonService",function($scope,logonService){
+    .controller("loginController",["$scope","$rootScope","logonService","$location",function($scope,$rootScope,logonService,$location){
         $scope.submitted = false;
         $scope.login = function(){
             if($scope.myLogin_form.$valid){
                 logonService.getUser($scope.user.name,$scope.user.password).then(function(data){
                     if(data){
-                        console.log("welcome");
+                        $rootScope.logged = true;
+                        $location.path("/total");
                     }
                     else{
                         console.log("byebye")
