@@ -29,7 +29,8 @@ define(function(require,exports,module){
                     defered.reject(data);
                 })
                 return defered.promise;
-            }
+            },
+
         }
     }])
     .factory("printService",function(){

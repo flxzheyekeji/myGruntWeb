@@ -4,7 +4,6 @@
 define(function(require,module){
     var $ = require("../../../bower_components/jquery/dist/jquery");
     require("../../../plug/icheck/icheck");
-    require();
     module.exports = angular.module("myApp.directive",[]).directive('ngIcheck', function($compile) {
     return {
         restrict : 'AE',

@@ -2,18 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/base.css"/>
     <link rel="stylesheet" href="../css/ng_lea.css"/>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../plug/ng-progress/nprogress.css">
-    <link rel="stylesheet" href="../plug/icheck/css/skins/all.css">
-    <link rel="stylesheet" href="../plug/datePicker/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="../plug/datePicker/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../plug/ng-progress/nprogress.css"/>
+    <link rel="stylesheet" href="../plug/icheck/css/skins/all.css"/>
+    <link rel="stylesheet" href="../plug/datePicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" href="../plug/datePicker/font-awesome.min.css"/>
 
-    <!--<script src="../js/jquery.min.js"></script>-->
     <!--<script src="../js/angular.min.js"></script>-->
     <!--<script src="../js/angular-route.min.js"></script>-->
-    <!--<script src="../js/bootstrap.min.js"></script>-->
+    <script src="../js/sea.js"></script>
+    <!--<script src="../js/ocLazyLoad.min.js"></script>-->
+    <script src="../js/tools/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!--tool-->
     <!--<script src="../js/lodash.js"></script>-->
     <!--<script src="../plug/datePicker/moment.js"></script>-->
@@ -29,7 +31,7 @@
 </head>
 <body>
 <div class="header">封连祥的angular网站</div>
-<div >
+<div class="home-content">
     <!--ng-controller="MyController"-->
     <ul class="func-list">
         <li class="item" style="z-index: 9"><a href="#/login">登录</a></li>
@@ -47,15 +49,13 @@
 <!--<script type="text/javascript" src="../js/ng-learn/directives/ng-icheck.js"></script>-->
 <!--<script type="text/javascript" src="../js/ng-learn/controllers/ng-controller.js"></script>-->
 <!--<script type="text/javascript" src="../js/ng-learn/ng-main.js"></script>-->
-<script src="../js/sea.js"></script>
-<script type="text/javascript">
+<script>
     seajs.config({
         base:"../",
-        alias:{
-            'lodash':"../js/lodash",
-            '$':"../../bower_components/jquery/dist/jquery",
-            'angularjs':'../bower_components/angular/angular',
-            'angular-route':'../bower_components/angular-route/angular-route'
+        alias: {
+            '$': 'js/tools/jquery',
+            "loadsh":"js/tools/lodash",
+            "moment":"plug/dataPicker/moment"
         }
     });
     seajs.use("js/main");
