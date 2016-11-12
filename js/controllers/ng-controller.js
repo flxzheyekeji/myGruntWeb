@@ -1,9 +1,9 @@
 /**
  * Created by Administrator on 2016/10/20.
  */
-define(function(require,module){
-    require("js/ng-learn/directives/ng-icheck");
-    require("js/ng-learn/factorys/ng-factory");
+define(function(require,exports,module){
+    require("js/directives/ng-icheck");
+    require("js/factorys/ng-factory");
     require("../../../plug/pagenation/tm.pagination");
     require("../../../plug/datePicker/daterangepicker");
 module.exports = angular.module("myApp.controllers",["ngRoute","myApp.directive","myApp.factorys","ngPagination"])
