@@ -1,4 +1,7 @@
-
+.home-content{
+    padding:30px 0;
+    height:100%;
+}
 .tot-box{
     border: 1px solid black;
     background: #c0a16b;
@@ -44,13 +47,12 @@
     text-align: center;
     line-height: 30px;
 }
-
-.func-list {
-    padding: 30px 0;
-}
+/*the index of title
+-------------------------------------------------------------------------------*/
 .func-list{
     font-size: 0;
     text-align: center;
+    margin: 0;
 }
 .func-list .item{
     display: inline-block;
@@ -117,10 +119,74 @@
 /*ng-login-form
 --------------------------------------------------------------------------------------*/
 .login-form{
-    width:200px;
-    margin:80px auto 0;
+    margin:80px auto;
+    text-align: center;
+}
+.back-opacity{
+    width:380px;
+    height:176px;
+    margin-right: -380px;
+    border:8px solid #8ebce0;
+    background-color: #c9e7f0;
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 10;
+    opacity: 0.7;
+}
+.user-input{
+    width:380px;
+    height:176px;
+    padding: 37px 36px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 11;
 }
 
-.login-form .error{
+.user-input .error{
     color:red;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
 }
+
+.user-input .user-msg{
+    text-align: right;
+}
+
+.user-input .user-msg input{
+    width: 192px;
+    line-height: 32px;
+    border:1px solid #dcd690;
+    margin-left:55px;
+    padding-left: 8px;
+}
+
+.btn-home-login{
+    margin-left: -7px;
+    display: inline-block;
+    width:130px;
+    height: 130px;
+    border:20px solid #6cccf9;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    background-color: #077fc8;
+    overflow: hidden;
+    margin-top: 26px;
+    position: relative;
+    z-index: 9;
+}
+.btn-home-login button{
+    transform: rotate(-45deg);
+    background-color: #077fc8;
+    font-size: 18px;
+    color:white;
+    border: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+
