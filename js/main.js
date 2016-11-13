@@ -49,7 +49,6 @@ define(function(require,exports,module){
             }
         })
     }])
-
     angular.bootstrap(document.body,['myApp']);
 })
 
