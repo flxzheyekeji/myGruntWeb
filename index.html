@@ -266,7 +266,7 @@
     </div>
 </section>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
+<script src="js/tools/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <script>
@@ -277,7 +277,6 @@
         }
 
         $(".lina").on("mousemove",function(event){
-            console.log(event.clientX);
             var l = mouseplace();
             $('.lina').css("background-position-x",(l*event.clientX - 20) + "px");
         });
