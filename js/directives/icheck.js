@@ -16,8 +16,8 @@ define(function(require,exports,module){
                 $($element).iCheck({
                     labelHover : false,
                     cursor : true,
-                    checkboxClass : 'icheckbox_square-blue',
-                    radioClass : 'iradio_square-blue',
+                    checkboxClass: 'icheckbox_flat-red',
+                    radioClass: 'iradio_flat-red',
                     increaseArea : '20%'
                 }).on('ifClicked', function(event) {
                     if ($attrs.type == "checkbox") {
