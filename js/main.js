@@ -13,8 +13,13 @@ define(function(require,exports,module){
     var routeConfig = require("js/route");
     var loader = require("js/ng-load");
 
-    angular.module("myApp",['ngRoute',"myApp.controllers","myApp.factory","myApp.directive"]).config(["$routeProvider",
-        function($routeProvider){
+    angular.module("myApp",['ngRoute',"myApp.controllers","myApp.factory","myApp.directive"]).config(["$routeProvider","$httpProvider",
+        function($routeProvider,$httpProvider){
+
+            $httpProvider.defaults.headers.post['X-Requested-By'] = "fenglianxiang";
+            $httpProvider.defaults.headers.put['X-Requested-By'] = "fenglianxiang";
+            //$httpProvider.defaults.headers.common['X-Requested-By'] = "fenglianxiang";
+            //$httpProvider.defaults.headers.patch['X-Requested-By'] = "fenglianxiang";
 
             //var registerController = $controllerProvider.register;
             //var registerDirective = $compileProvider.directive;
@@ -37,6 +42,7 @@ define(function(require,exports,module){
         if (routeConfig.defaultRoute != undefined) {
             $routeProvider.otherwise({ redirectTo: routeConfig.defaultRoute });
         }
+
     }]).run(["$rootScope","$location",function($rootScope,$location){
         $rootScope.logged = false;
         $rootScope.$on("$routeChangeStart",function(event,next,current){

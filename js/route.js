@@ -32,8 +32,8 @@ define(function(require,exports,module){
             },
             '/multiple':{
                 templateUrl:"../temp/ng-multiple.html",
-                controller:"editController",
-                dependencies:"js/controllers/editController"
+                controller:"textEditController",
+                dependencies:"js/controllers/textEditController"
             },
             '/print':{
                 templateUrl:"../temp/ng-print.html",
