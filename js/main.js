@@ -43,7 +43,13 @@ define(function(require,exports,module){
             $routeProvider.otherwise({ redirectTo: routeConfig.defaultRoute });
         }
 
-    }]).run(["$rootScope","$location",function($rootScope,$location){
+    }]).controller('viewChangeController',function($scope){
+        $scope.$on("$routeChangeSuccess",function(event,next){
+            var $ = require("$");
+            $(".func-list li.active").removeClass("active");
+            $('a[href=\"#' + next.$$route.originalPath + '\"]').parent().addClass('active');
+        });
+    }).run(["$rootScope","$location",function($rootScope,$location){
         $rootScope.logged = false;
         $rootScope.$on("$routeChangeStart",function(event,next,current){
             if(!$rootScope.logged){

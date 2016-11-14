@@ -11,7 +11,6 @@ define(function(require,exports,module) {
                 // 创建一个延迟执行的 promise 对象
                 var defered = $q.defer();
                 // 使用 requirejs 的 require 方法加载的脚本
-                console.log("download begin!");
                 require.async(dependencies, function() {
                     //我不知道高手价格这个代码什么用。似乎一点用没有，
                     // 只要下载完就改变状态就行了，没必要在ng的scope中执行。

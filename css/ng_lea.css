@@ -56,6 +56,9 @@
     margin: 0;
     min-width: 820px;
 }
+.func-list li.active{
+    background:#00b3ee;
+}
 .func-list .item{
     display: inline-block;
     vertical-align: top;
@@ -328,8 +331,9 @@ ______________________________________________________________________*/
 
  .structure{
     position: relative;
-    border:1px solid black;
+    border:1px solid transparent;
      width: 720px;
+     margin: 0 auto;
 }
 /*black ball
 ________________________________________*/
