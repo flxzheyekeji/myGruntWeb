@@ -14,6 +14,7 @@ define(function(require,exports,module) {
                 require.async(dependencies, function() {
                     //我不知道高手价格这个代码什么用。似乎一点用没有，
                     // 只要下载完就改变状态就行了，没必要在ng的scope中执行。
+                    //下次在点击同一个功能的时候会出现错误。
                     //$rootScope.$apply(function() {
                         // 加载完脚本之后， 完成 promise 对象；
                         defered.resolve();
