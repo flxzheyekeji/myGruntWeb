@@ -394,6 +394,82 @@ _____________________________________________________________________________*/
     text-decoration: none;
 }
 
+/*part five
+_______________________________________________________________________________*/
+
+.myCarousel{
+    border:27px solid transparent;
+    border-image: url("img/border.png") 27 27 repeat;
+    height: 350px;
+    perspective: 800px;
+    position: relative;
+    width:1000px;
+    margin:0 auto;
+    overflow: hidden;
+}
+
+.cl-img{
+    top:50px;
+    position:absolute;
+    width:200px;
+    height: 200px;
+    background-color: blue;
+    /*transform: matrix3d(1,0.24,0.2,0,0,1,0,0,0,0,1,0,0,0,0,2);*/
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-origin: 0% 50%;
+    transform:rotateY(59deg);
+    right: -199px;
+}
+
+.cl-img-0{
+    transform:rotateY(59deg);
+    right: -199px;
+}
+
+.cl-img-1{
+    transform: rotateY(-77deg);
+    left:0;
+}
+.
+
+.cl-img-2{
+    transform: rotateY(-77deg);
+    left: 150px;;
+}
+
+
+.cl-img-3{
+    transform: rotateY(-77deg);
+    left:300px;
+}
+
+
+.cl-img-4{
+    transform: rotateY(-77deg);
+    left: 450px;;
+}
+
+
+.cl-img-5{
+    transform: rotateY(-59deg);
+    right: 745px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -426,5 +502,10 @@ _____________________________________________________________________________*/
 .explain li a:checked{
     text-decoration: none;
 }
+
+
+
+
+
 
 

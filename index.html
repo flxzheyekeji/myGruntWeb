@@ -234,6 +234,10 @@
         </div>
     </div>
 </section>
+<section id="part-four">
+    <ul class="myCarousel">
+    </ul>
+</section>
 <section id="part-last">
     <div class="container">
         <div class="row explain">
@@ -269,18 +273,6 @@
 <script src="js/tools/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function(){
-        function mouseplace(){
-            var k = document.body.clientWidth;
-            return  20 / k;
-        }
-
-        $(".lina").on("mousemove",function(event){
-            var l = mouseplace();
-            $('.lina').css("background-position-x",(l*event.clientX - 20) + "px");
-        });
-    });
-</script>
+<script src="js/ImgLegend.js"></script>
 </body>
 </html>
