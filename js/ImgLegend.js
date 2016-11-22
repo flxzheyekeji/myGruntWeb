@@ -2,18 +2,6 @@
  * Created by Administrator on 2016/11/17.
  */
 
-function inherit(o){
-    if(o == null) throw "不能从null继承";
-    if(Object.create){
-        return Object.create(o.prototype);
-    }
-    var t = typeof o;
-    if(t !== "object" && t !== "function") throw "只能从对象和构造函数继承";
-    function f(){};
-    f.prototype = o;
-    return new f();
-}
-
 function EnumImgLegend(element,pics,duration){
 
     var EnumImgLegend = function(){throw "不能实例化图片类"};
@@ -27,10 +15,12 @@ function EnumImgLegend(element,pics,duration){
     //记录元素运行的最终状态
     var endState = {};
 
-    //元素的开始状态。
+    //元素的开始,结束状态。
     var eleState = {'right':-205,'transform':59 };
-
     var targetState = {"right":"745px", "transform":"rotateY(-59deg)"};
+
+    //判断有没有被实例化
+    EnumImgLegend.INSTANTIATE = false;
 
     //存储所有的图片对象
     EnumImgLegend.values = [];
@@ -68,11 +58,11 @@ function EnumImgLegend(element,pics,duration){
         value:null,
         name:null,
         isAdded:false,
-        reset:function(){
+        reset:function() {
             this.transform = 59;
             this.right = -199;
             this.isAdded = false;
-            this.value.css({'transform':'rotateY(59deg)','right':'-205px'})
+            this.value.css({'transform': 'rotateY(59deg)', 'right': '-205px'})
         }
     }
 
@@ -87,12 +77,12 @@ function EnumImgLegend(element,pics,duration){
 
     EnumImgLegend.isStop = function(el){
         if(!el){
-            debugger;
+           throw "这不是一个元素"
         }
         for(var k in endState){
             if(Number(eleState[k]) <= Number(endState[k]) && Number(el[k]) <= Number(endState[k])){
                 return false
-            };
+            }
             if(Number(eleState[k]) > Number(endState[k]) && Number(el[k]) > Number(endState[k])){
                 return false
             }
@@ -162,7 +152,7 @@ function EnumImgLegend(element,pics,duration){
         }
 
         for(var i = 0;i<pics.length;i++){
-            var e = inherit(EnumImgLegend);
+            var e = inherit(EnumImgLegend.prototype);
             //这里返回一个jquery对象
             e.value = EnumImgLegend.create(pics[i]);
             e.name = "pic" + i;
@@ -193,15 +183,12 @@ function EnumImgLegend(element,pics,duration){
         setTimeout(function(){
             for(var i=0;i < moveList.length; i++){
                 if(EnumImgLegend.isStop(moveList[i])){
-                    console.log("remove")
                     //将数组第一项
                     EnumImgLegend.remove();
                 }
                 if(!moveList[i].isAdded && EnumImgLegend.isAdd(moveList[i])){
-                    console.log("add")
                     //添加一向进来
                     EnumImgLegend.add();
-                    console.log(moveList.length);
                 }
                 EnumImgLegend.addStep(moveList[i]);
                 moveList[i].value.css(EnumImgLegend.addUnits(moveList[i]));
@@ -222,10 +209,30 @@ function EnumImgLegend(element,pics,duration){
 }
 
 $(document).ready(function(){
+
+    //判断元素进入屏幕的滚动距离
+    function scrollScreen(element){
+        var eleHeight = element.height();
+        var screenHeight = $(window).height();
+        var offsetHeight = element.offset().top;
+        return offsetHeight -(screenHeight - eleHeight);
+    }
+
+    var carScrollTop = scrollScreen($('.myCarousel'));
+
     var picList = ["css/img/nevermore.jpg","css/img/icegile.jpg",
         "css/img/kaer.jpg","css/img/lina.jpg",
         "css/img/PA.jpg","css/img/shengtang.jpg","css/img/tufu.jpg"];
-    new EnumImgLegend($('.myCarousel'),picList,5);
+
+    $(window).scroll(function(){
+        var carousel = $('.myCarousel');
+        if($(window).scrollTop() >= carScrollTop){
+            if(!EnumImgLegend.INSTANTIATE){
+                EnumImgLegend.INSTANTIATE = true;
+                new EnumImgLegend(carousel,picList,5);
+            }
+        }
+    })
 })
 
 
