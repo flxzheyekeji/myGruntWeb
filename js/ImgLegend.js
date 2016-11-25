@@ -220,7 +220,7 @@ $(document).ready(function(){
 
     var carScrollTop = scrollScreen($('.myCarousel'));
 
-    var picList = ["css/img/nevermore.jpg","css/img/icegile.jpg",
+    var picList = ["css/img/nevermore.jpg",
         "css/img/kaer.jpg","css/img/lina.jpg",
         "css/img/PA.jpg","css/img/shengtang.jpg","css/img/tufu.jpg"];
 

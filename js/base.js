@@ -42,11 +42,20 @@ Function.prototype.extend = function(constructor,methods,statics){
 }
 
 //jquery将上下左右键给屏蔽掉了
-function keyListener(f){
+function keyDown(f){
     if(document.addEventListener){
         document.addEventListener('keydown',f)
     }
     if(document.attachEvent){
         document.attachEvent('onkeydown',f)
+    }
+}
+
+function keyUp(f){
+    if(document.addEventListener){
+        document.addEventListener('keyup',f)
+    }
+    if(document.attachEvent){
+        document.attachEvent('onkeyup',f)
     }
 }
