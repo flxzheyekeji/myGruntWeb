@@ -2,10 +2,12 @@
  * Created by Administrator on 2016/11/17.
  */
 
-function EnumImgLegend(element,pics,duration){
-
+function EnumImgLegend(element,options){
+    if(!options.pics) throw "你需要几张图片";
+    if(options.pics.length < 0) throw "你需要几张图片";
     var EnumImgLegend = function(){throw "不能实例化图片类"};
 
+    var duration = options.duration;
     //设置每步运行多少
     var step = {};
 
@@ -18,6 +20,9 @@ function EnumImgLegend(element,pics,duration){
     //元素的开始,结束状态。
     var eleState = {'right':-205,'transform':59 };
     var targetState = {"right":"745px", "transform":"rotateY(-59deg)"};
+
+    //标志是否继续滚动
+    EnumImgLegend.ISMOVE = true;
 
     //判断有没有被实例化
     EnumImgLegend.INSTANTIATE = false;
@@ -67,13 +72,84 @@ function EnumImgLegend(element,pics,duration){
     }
 
     EnumImgLegend.create = function(imgUri){
+        var div = document.createElement("div");
         var li = document.createElement("li");
-        return $(li).addClass("cl-img").css({
-            'transform':'rotateY(59deg)',
-            'right':'-205px',
+        var canvas = document.createElement("canvas");
+        $(li).appendTo($('.myCarousel'));
+
+        $(div).on('click',function(event){
+            if(EnumImgLegend.ISMOVE){
+                EnumImgLegend.ISMOVE = false;
+            }else{
+                EnumImgLegend.ISMOVE = true;
+                EnumImgLegend.animal();
+            }
+        }).css({
+            'width':'200px',
+            'height':'200px',
             'background-image':'url(' + imgUri + ')'
+        }).appendTo(li);
+
+        var num = Math.floor(Math.random()*10+1);
+        var img = null;
+        if(num%3 ==0){
+            img = 'url(css/img/prize.jpg)'
+        }else{
+            img = 'url(css/img/thanks.jpg)'
+        }
+        $(canvas).attr({
+            'width':'200',
+            'height':'100'
+        }).css({
+            'background-image':img
+        }).appendTo(li);
+
+        return  $(li).addClass("cl-img");
+    };
+
+    EnumImgLegend.isMiddle = function(element){
+        if(!EnumImgLegend.ISMOVE && Math.abs(element['transform']) < 1){
+            clearInterval(EnumImgLegend.cirly);
+        }
+    };
+
+    EnumImgLegend.paint = function(cav){
+        var canvas = $(cav);
+        var downFlag = false;
+        canvas.mousedown(function(event){
+            //event.stopPropagation();
+            downFlag = true;
         });
-    }
+        canvas.on('mousemove',function(event){
+            //event.stopPropagation();
+            if(downFlag && !EnumImgLegend.ISMOVE){
+                var x = event.clientX - $(this).offset().left;
+                var y = event.clientY - ($(this).offset().top - $("body").scrollTop());
+                var ctx=canvas.get(0).getContext('2d');
+                //ctx.fillStyle = 'red';
+                ctx.beginPath();
+                ctx.arc(x,y,10,0,2*Math.PI);
+                ctx.fill();
+            }
+        });
+        canvas.on('mouseup',function(event){
+            //event.stopPropagation();
+            downFlag = false;
+            var ctx=canvas.get(0).getContext('2d');
+            var imgData=ctx.getImageData(0,0,200,100);
+            var tatol = imgData.data.length/4;
+            var showpx = 0;
+            for(var i=0;i<tatol;i++){
+                if(imgData.data[i] < 100) showpx++;
+            }
+            if(showpx/tatol > 0.5) ctx.fillRect(0,0,200,100);
+
+        });
+        canvas.on('mouseleave',function(event){
+            //event.stopPropagation();
+            downFlag = false;
+        });
+    };
 
     EnumImgLegend.isStop = function(el){
         if(!el){
@@ -138,8 +214,14 @@ function EnumImgLegend(element,pics,duration){
         return printStyle;
     }
 
-    EnumImgLegend.init = function(){
+    EnumImgLegend.makeCanvas = function(canvas){
+        var ctx=canvas.getContext('2d');
+        ctx.fillStyle='#666666';
+        ctx.fillRect(0,0,200,100);
+        ctx.globalCompositeOperation = 'destination-out';
+    };
 
+    EnumImgLegend.init = function(){
         if(isNaN(duration)){
             throw "you mast input animale run time!";
         }
@@ -151,13 +233,15 @@ function EnumImgLegend(element,pics,duration){
             step[key] = ((endState[key] - eleState[key])/duration).toFixed(2);
         }
 
-        for(var i = 0;i<pics.length;i++){
+        for(var i = 0;i<options.pics.length;i++){
             var e = inherit(EnumImgLegend.prototype);
             //这里返回一个jquery对象
-            e.value = EnumImgLegend.create(pics[i]);
+            e.value = EnumImgLegend.create(options.pics[i]);
             e.name = "pic" + i;
             EnumImgLegend.values.push(e);
-            element.append(e.value);
+            var canvas = e.value.find('canvas').get(0);
+            this.makeCanvas(canvas);
+            this.paint(canvas);
         }
 
         //向移动队列注入一个元素
@@ -180,7 +264,10 @@ function EnumImgLegend(element,pics,duration){
     //这里面有一个问题，假如在40ms内，for函数没有执行玩，该怎么办呢?
     EnumImgLegend.animal = function(){
         var moveList = EnumImgLegend.onmove;
-        setTimeout(function(){
+        if(EnumImgLegend.cirly){
+            clearTimeout(EnumImgLegend.cirly);
+        }
+        EnumImgLegend.cirly = setInterval(function(){
             for(var i=0;i < moveList.length; i++){
                 if(EnumImgLegend.isStop(moveList[i])){
                     //将数组第一项
@@ -190,10 +277,11 @@ function EnumImgLegend(element,pics,duration){
                     //添加一向进来
                     EnumImgLegend.add();
                 }
+                EnumImgLegend.isMiddle(moveList[i]);
                 EnumImgLegend.addStep(moveList[i]);
                 moveList[i].value.css(EnumImgLegend.addUnits(moveList[i]));
             }
-            setTimeout(arguments.callee,20);
+            //setTimeout(arguments.callee,20);
         },20);
     }
 
@@ -203,37 +291,37 @@ function EnumImgLegend(element,pics,duration){
         }
     }
 
-    EnumImgLegend.init();
 
-    EnumImgLegend.animal();
-}
-
-$(document).ready(function(){
-
-    //判断元素进入屏幕的滚动距离
-    function scrollScreen(element){
+    function scrollScreen(){
         var eleHeight = element.height();
         var screenHeight = $(window).height();
         var offsetHeight = element.offset().top;
         return offsetHeight -(screenHeight - eleHeight);
     }
 
-    var carScrollTop = scrollScreen($('.myCarousel'));
+    var carScrollTop = scrollScreen();
 
-    var picList = ["css/img/nevermore.jpg",
-        "css/img/kaer.jpg","css/img/lina.jpg",
-        "css/img/PA.jpg","css/img/shengtang.jpg","css/img/tufu.jpg"];
 
     $(window).scroll(function(){
-        var carousel = $('.myCarousel');
         if($(window).scrollTop() >= carScrollTop){
             if(!EnumImgLegend.INSTANTIATE){
                 EnumImgLegend.INSTANTIATE = true;
-                new EnumImgLegend(carousel,picList,5);
+                EnumImgLegend.init();
+                EnumImgLegend.animal();
             }
         }
     })
-})
+}
+
+;(function($) {
+    $.fn.extend({
+        EnumImgLegend: function(options) {
+            return this.each(function() {
+                return new EnumImgLegend($(this),options);
+            });
+        }
+    });
+})(jQuery|| window.jQuery);
 
 
 
