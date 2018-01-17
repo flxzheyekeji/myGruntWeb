@@ -1,0 +1,43 @@
+.content .test {
+    width: 200px;
+    height: 200px;
+    background: #f60; /*all*/
+    background: #06f9; /*IE*/
+    *background: #666; /*IE6,7*/
+    _background: #ccc; /*IE6*/
+}
+
+/* webkit and opera */
+@media all and (min-width:0){
+    .content .test {
+        background: #0f0;
+    }
+}
+
+/* webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .content .test {
+        background: #ff0;
+    }
+}
+
+/*FireFox*/
+@-moz-document url-prefix() {
+    .content .test {
+        background: #f0f;
+    }
+}
+
+/*IE9+*/
+@media all and (min-width:0) {
+    .content .test{
+        background: #f009;
+    }
+}
+
+/*IE10+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .content .test {
+        background: #0ff;
+    }
+}

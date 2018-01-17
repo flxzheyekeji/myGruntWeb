@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>样式翻阅_2</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../css/test_2.css"/>
+</head>
+<body>
+
+<!-- CSS ::Selection知多少
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    CSS ::Selection知多少
+</h2>
+
+<p class="text-seleted">
+    This document is a draft of one of the "modules" [CSS3-intro] for the upcoming CSS3 specification.
+    It not only describes the background functionality that already exists in CSS1 and CSS2,
+    but also proposes new functionality for CSS3 as well as for other languages that may need it.
+    (This draft does not yet propose any new functionality, but future versions will.)
+</p>
+
+<p>ie9 ie10 chrome firefox opera safari 都可支持！</p>
+
+<!--CSS3 Multi-columns 之列数和列宽
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    CSS3 Multi-columns 之列数和列宽
+</h2>
+
+<p>
+    废话不说先看定义：
+    This specification describes multi-column layouts in CSS,
+    a style sheet language for the web. Using functionality described in the specification,
+    content can be flowed into multiple columns with a gap and a rule between them.
+</p>
+<p>
+    这个东西看看就行了，第一次听说应该作用很小。ie7 8 9 都是不支持的。我只看看就行了，然后简单的给个例子。
+    不做深入研究。这个东西估计是废柴没什么用！类表格。并且这个东西是排文章用的，用的范围较小，不如flex-box；
+</p>
+
+<div class="columnCountAuto">
+    This document is a working draft of the CSS working group which is part of the style activity.
+    Comments on, and discussions of this draft can be sent on the (archived) public mailing list www-style@w3.org (see instructions). W3C Members can also send comments directly to the CSS working group.
+    This is a working draft and may therefore be updated, replaced or rendered obsolete by other W3C documents at any time. It is inappropriate to use W3C Working Drafts as reference material or to cite them as other than "work in progress". Its publication does not imply endorsement by the W3C membership or the CSS Working Group (members only).
+    To find the latest version of this working draft, please follow the "Latest version" link above, or visit the list of W3C Technical Reports.
+    This document may be available in translations in the future. The English version of this specification is the only normative version.
+</div>
+<p>如果将来用到的话可以参考：<a href="http://www.w3.org/TR/css3-multicol/">http://www.w3.org/TR/css3-multicol/</a> 以及 <a
+        href="http://www.w3cplus.com/blog/css3?page=12">http://www.w3cplus.com/blog/css3?page=12</a> </p>
+
+<!--CSS3 Media Queries
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    CSS3 Media Queries
+</h2>
+<p>
+    这个属性之所以叫做“媒体查询”，是因为他在css2的年代就已经有了，用来查看页面运行的设备，例如，tv，print，等
+    现在的“媒体查询”是css2年代的加强版！不但可以查询媒体，而且可以查询宽度。从而就有了蛋疼的响应式布局。
+</p>
+这里列出几个常用的例子供以后查阅
+<dl>
+    <dt>一、最大宽度Max Width</dt>
+    <dd>&lt;link rel="stylesheet" media="screen and (max-width:600px)" href="small.css" type="text/css" /&gt;</dd>
+    <dt>二、最小宽度Min Width</dt>
+    <dd>&lt;link rel="stylesheet" media="screen and (min-width:900px)" href="big.css" type="text/css"  /&gt;</dd>
+    <dt>三、多个Media Queries使用</dt>
+    <dd> &lt;link rel="stylesheet" media="screen and (min-width:600px) and (max-width:900px)" href="style.css" type="text/css" /&gt;</dd>
+    <dt>四、设备屏幕的输出宽度Device Width</dt>
+    <dd>  &lt;link rel="stylesheet" media="screen and (max-device-width: 480px)" href="iphone.css" type="text/css" /&gt;</dd>
+    <dt>五、iPhone4</dt>
+    <dd>&lt;link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="iphone4.css" /&gt;</dd>
+    <dt>六、iPad</dt>
+    <dd>&lt;link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" type="text/css" /&gt;
+        &lt;link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css"  type="text/css" /&gt;</dd>
+    <dt>七、android</dt>
+    <dd>/*240px的宽度*/
+        &lt;link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" /&gt;
+        /*360px的宽度*/
+        &lt;link rel="stylesheet" media="only screen and (min-device-width:241px) and (max-device-width:360px)" href="android360.css" type="text/css" /&gt;
+        /*480px的宽度*/
+        &lt;link rel="stylesheet" media="only screen and (min-device-width:361px) and (max-device-width:480px)" href="android480.css" type="text/css" /&gt;</dd>
+    <dt>八、not关键字</dt>
+    <dd> &lt;link rel="stylesheet" media="not print and (max-width: 1200px)" href="print.css" type="text/css" /&gt;</dd>
+    <dt>九、only关键字</dt>
+    <dd> &lt;link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" /&gt;</dd>
+    <dt>十、其他</dt>
+    <dd>
+        <p>在Media Query中如果没有明确指定Media Type，那么其默认为all，如：</p>
+        <p> &lt;link rel="stylesheet" media="(min-width: 701px) and (max-width: 900px)" href="medium.css" type="text/css" /&gt;</p>
+        <p>另外还有使用逗号（，）被用来表示并列或者表示或，如下</p>
+        <p> &lt;link rel="stylesheet" type="text/css" href="style.css" media="handheld and (max-width:480px), screen and (min-width:960px)" /&gt;</p>
+    </dd>
+</dl>
+<!--ie对伪类选择器支持情况
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    ie对伪类选择器支持情况
+</h2>
+<p>对于:hover在IE6下只有a元素支持，:active只有IE7-6不支持，:focus在IE6-7下不被支持。</p>
+<p>IE6-8不支持":checked",":enabled",":disabled"这三种选择器。</p>
+<p>IE6不支持:first-child选择器。</p>
+<p>IE6-8和FF3-浏览器不支持":nth-child"选择器。</p>
+<p>IE6-8浏览器不支持:only-child选择器；IE6-8和FF3.0-浏览器不支持:only-of-type选择器。
+<p>IE6-8浏览器不支持:empty选择器</p>
+<p>IE6-8浏览器不支持:not()选择器</p>
+<p>经测试ie6-8是不支持first-line和first-letter的</p>
+<p class="ie-first-line">
+    CSS中的伪元素大家以前看过：:first-line,:first-letter,:before,:after;那么在CSS3中，
+    他对伪元素进行了一定的调整，在以前的基础上增加了一个“：”也就是现在变成了“::first-letter,
+    ::first-line,::before,::after”另外他还增加了一个“::selection”,两个“：：”
+    和一个“：”css3中主要用来区分伪类和伪元素，到目前来说，这两种方式都是被接受的，
+    也就是说不管使用哪种写法所起的作用都是一样的，只是一个书写格式不同而以。
+</p>
+<p>经测试ie6-7是不支持before和after的,ie8居然支持这个东西参见“Tabs with Round Out Borders”</p>
+
+<!--纯css制作垂直手风琴
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    纯css制作垂直手风琴
+</h2>
+
+<div class="verticalAccordion">
+    <ul>
+        <li>
+            <label for="head_1">Heading 1</label>
+            <input type="radio" name="Accordion" id="head_1"  checked="checked"/>
+            <div>Content for Panel 1.</div>
+        </li>
+        <li>
+            <label for="head_2">Heading 2</label>
+            <input type="radio" name="Accordion" id="head_2"/>
+            <div>Content for panel 2.</div>
+        </li>
+        <li>
+            <label for="head_3">Heading 3</label>
+            <input type="radio" name="Accordion" id="head_3"/>
+            <div>Content for panel 3.</div>
+        </li>
+        <li>
+            <label for="head_4">Heading 4</label>
+            <input type="radio" name="Accordion" id="head_4"/>
+            <div>Content for panel 4.</div>
+        </li>
+    </ul>
+</div>
+<p>
+    想法很好其实并没有什么用！这里主要用了transition属性，根据张老师的想法，我好想可以把它整成项目中可用的东西。
+    突然发现生活还是很美好的。这个东西在ie7-8下是用不了的。同样这个东西用target伪类也可以实现
+</p>
+
+<!--css3 calc的使用
+-------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    css3 calc的使用
+</h2>
+
+<div class="calc-width">
+    width: calc(50% - 10em);
+</div>
+
+<p>
+    浏览器对calc()的兼容性还算不错，在IE9+、FF4.0+、Chrome19+、Safari6+都得到较好支持，同样需要在其前面加上各浏览器厂商的识别符，
+    不过可惜的是，移动端的浏览器还没仅有“firefox for android 14.0”支持，其他的全军覆没。
+</p>
+<p>突然间想到一个问题，如果一个容器用padding，它里面的元素宽度是100%；会出现什么情况呢？</p>
+
+<div class="pd-box">
+    <div class="pd-inner"></div>
+</div>
+<p>经过在各种浏览器下测试，内部元素的宽度100%，是相对于外面元素的content-box计算的。</p>
+<p>我没有发现这个都比有什么用处！还是张老师给的那个例子正常一点！</p>
+<p>
+    突然想起来一个事借这个宝地记录一下，什么呢？就是positon：absolute;不能被张老师给忽悠了这个东西有的时候用起来，
+    还是很舒服的。例如让一个元素居底，或居右，都是非常有用的。看下面这个例子。
+</p>
+
+<div class="abs-box">
+    <div class="abs-bt">张小姐</div>
+</div>
+
+<div class="abs-box">
+    margin-top: calc(100% - 50px);
+    发现了什么没有，calc这个东西只能计算宽度。不会根据你的意愿去计算高度的。哈哈。。。。
+    <div class="calc-bt">张小姐</div>
+</div>
+
+<!--走向视网膜时代
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    走向视网膜时代
+</h2>
+<p>视网膜：显示屏的分辨率极高，使得肉眼无法分辨单个像素。首先来了解一些概念</p>
+<dl>
+    <dt>设备像素</dt>
+    <dd>
+        也称物理像素。它是显示设备中一个最小的物理部件，每个像素都可以根据操作系统设置自己的颜色和亮度。
+    </dd>
+    <dt>屏幕密度</dt>
+    <dd>
+        指的是一个设备表面上存在的像素数量，通常以每英寸多少像素来计算（ppi）。当屏幕密度超过300ppi是人眼
+        就无法分辨。平板显示器超过360ppi就不会用颗粒感。
+    </dd>
+    <dt>css像素</dt>
+    <dd>
+        css像素成为与设备无关的像素。在一个标准显示密度下，一个css像素对应一个设备像素。例如在pc上
+        例如&lt;div width="20" height="20"&gt;&lt;/div &gt;在pc上显示20X20像素，在retina为2
+        的设备上显示了40X40个像素。但是物理尺寸是一样的。这就导致了每个像素点，是普通的四个像素点。
+        在开发中用device-pixel-ratio来解决。
+    </dd>
+    <dt>位图像素</dt>
+    <dd>
+        当一个光栅图像在标准设备下全屏显示时，一个位图像素对应个设备像素，保真显示。但是在retina下他要放大
+        4倍莱宝石相同的物理像素的大小，这样会丢失细节造成失真。我估计模拟是
+    </dd>
+    <dt>高分辨率屏幕与高像素密度屏幕</dt>
+    <dd>
+        在windows系统下提高屏幕分辨率一般都是通过屏幕尺寸。有这种假象显示器尺寸越大，分辨率越大。
+    </dd>
+    <dt>高像素密度屏幕</dt>
+    <dd>就是相同的尺寸下有更大的分辨率</dd>
+    <dt>HTM和css的标准</dt>
+    <dd>
+        最直截了当的方法是制作两张不同的图形，一张普通图形，另一张是普通图片2倍像素的图片。
+    </dd>
+    <dt>像素密度查询</dt>
+    <dd style="white-space: pre-line">
+        @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+        only screen and (-moz-min-device-pixel-ratio: 1.5),
+        only screen and (-o-min-device-pixel-ratio: 3/2),
+        only screen and (min-device-pixel-ratio: 1.5) {
+        .icon {
+        background-image: url(example@2x.png);
+        }
+        }
+    </dd>
+    <dt>iphone4</dt>
+    <dd>
+        @media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+        /* Styles */
+        }
+    </dd>
+    <dt>可缩放矢量图形</dt>
+    <dd>
+        基于XML的svg格式制作的矢量图得到了70&以上的浏览器支持，可以使用svg绘制各种图形，并且可以在Retina下任意的伸缩。
+        &lt;img src="example.svg" width="200" height="300" /&gt;
+    </dd>
+    <dt>svg图像调用</dt>
+    <dd style="white-space: pre-line;">
+        .image {
+        background-image: url(example.svg);
+        background-size: 200px 300px;
+        height: 200px;
+        width: 300px;
+        }
+    </dd>
+    <dt>浏览器兼容</dt>
+    <dd>
+        如果你想在IE7-8和Android2.x上运用，那么使用使用png图片来代替svg图像,这是他的缺点。
+    </dd>
+
+</dl>
+
+
+<!--Tabs with Round Out Borders
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    Tabs with Round Out Borders，这里给出例子在做简要说明
+</h2>
+<p>在这里上面的圆角好做，下面的圆角难做！</p>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="">Home</a></li>
+    <li><a href="">Profile</a></li>
+    <li><a href="">Messages</a></li>
+    <li><a href="">Settings</a></li>
+</ul>
+<p>其实说白了没什么就是利用了伪类的覆盖效果而已。其实他做的并不细致应该把边界漏出来才好看。等用的时候我再加上吧。</p>
+
+<!--Medial Queries的另一用法——服务于IE
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    Medial Queries的另一用法——服务于IE
+</h2>
+<dl>
+    <dt>仅IE6和IE7识别</dt>
+    <dd style="white-space: pre-line">
+        @media screen\9 {
+        .selector {  property: value; }
+        }
+    </dd>
+    <dt>仅IE6和IE7、IE8识别</dt>
+    <dd style="white-space: pre-line">
+        @media \0screen\,screen\9 {
+        .selector {  property: value; }
+        }
+    </dd>
+    <dt>仅IE8识别</dt>
+    <dd style="white-space: pre-line">
+        @media \0screen {
+        .selector {  property: value; }
+        }
+    </dd>
+    <dt>仅IE8-10识别</dt>
+    <dd style="white-space: pre-line">
+        @media screen\0 {
+        .selector {  property: value; }
+        }
+    </dd>
+    <dt>仅IE9和IE10识别</dt>
+    <dd style="white-space: pre-line">
+        @media screen and (min-width:0\0) {
+        .selector {  property: value; }
+        }
+    </dd>
+    <dt>仅IE10识别</dt>
+    <dd style="white-space: pre-line">
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* IE10-specific styles go here */
+        }
+    </dd>
+</dl>
+
+<p>对于这个东西的真真假假测试一下就知道了！走起~</p>
+
+<div class="grid mq-ie7">
+    只有在ie7下才显示红色，我勒个去以后这样处理ie7碉堡了。
+</div>
+
+<div class="grid mq-ie8">
+    只有在ie8下才显示红色，卧槽，以后就这样处理了还用个毛线hack；
+</div>
+
+<div class="grid mq-ie9-10">
+    只有在ie9,10下才显示红色，
+</div>
+
+<p>i can only say ,nice! i will use it！ </p>
+<p style="font-weight: bold">iPads和iPhones的Media Queries这里有非常全面的查询方式参见
+    <a href="http://www.w3cplus.com/css3/css-media-queries-for-iPads-and-iPhones.html">
+        http://www.w3cplus.com/css3/css-media-queries-for-iPads-and-iPhones.html
+    </a>
+</p>
+
+<!--关于clip，这里有点水，只说一点
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    关于clip，这里有点水。
+</h2>
+
+<div class="grid" style="position: relative">
+    <div class="ie-clip"></div>
+</div>
+
+<p>就像一把剪刀，所有外部的东西都要剪掉，就连高大上的outline都无法幸免。并且ie7都支持这样的属性了。只是用得少！</p>
+<p>突然间意识到用clip可以时间图片精灵，但是用clip必须是position：absolute，这就有点限制，不过想想还能有。</p>
+
+<!--CSS3 3D Transform
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    CSS3 3D Transform
+</h2>
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-tl"></div>
+</div>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-scale"></div>
+</div>
+
+
+<p style="margin-top: 50px">
+    通过上面两个图可以得到这样的结论，用transform对元素进行缩放，其实元素在原来的位置并没有发生变化，只是绘制出来的效果
+    改变了位置和大小。并不会影响到下一个元素的布局位置。浏览器到底是怎么做的我迷茫了！并且一个元素没办法进行3的变换，只
+    有外面的元素定义了transform-style；里面的元素才能有3d效果。
+</p>
+
+<p>不要认为 scaleZ没什么作用，其实是有作用的。</p>
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-scale-z5"></div>
+</div>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-scale-z25"></div>
+</div>
+
+<p>这个属性相当于改变了父元素的视距。大于1，相当于缩小了视距，小于1相当于增加了视距。</p>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-rx"></div>
+</div>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-ry"></div>
+</div>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-rz"></div>
+</div>
+
+<p>下面有个非常有意思的事情，先进行x轴旋转，在进行y轴选装得到的结果是不一样的。</p>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-rxy"></div>
+    先x后y
+</div>
+
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-ryx"></div>
+    先y后x
+</div>
+<p>这说明什么呢？这说明transform:rotateX(45deg) rotateY(45deg);在第一次发生旋转以后坐标轴也发生旋转所以就造成了不一样。</p>
+<p>最后用一个例子结束</p>
+<div class="stage s1">
+    <div class="container">
+        <div class="side top">1</div>
+        <div class="side left">2</div>
+        <div class="side right">3</div>
+    </div>
+</div>
+
+<p>
+    刚刚对transform3d又有了一点新的认识例如
+</p>
+<div class="tf3d-box">
+    <div class="grid tf3d tf3d-rxy"></div>
+</div>
+<div class="tf3d-box" style="width:150px;">
+    <div class="grid tf3d tf3d-rxy"></div>
+</div>
+<p>
+    这一点太高级了，这就可以在一个大的盒子里各个小的元素做3d变换，模拟相当逼真，犀利。他们考虑的太周到了。
+</p>
+<!--纯CSS实现内容过滤
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    纯CSS实现内容过滤
+</h2>
+
+<div class="filter-box">
+    <input type="radio" id="men" name="clothing" class="filt-ipt">
+    <label for="men" class="filt-lbe">男装</label>
+    <input type="radio" id="women" name="clothing" class="filt-ipt">
+    <label for="women"  class="filt-lbe">女装</label>
+    <input type="radio" id="children" name="clothing" class="filt-ipt">
+    <label for="children"  class="filt-lbe">童装</label>
+    <input type="radio" id="reset" name="clothing" class="filt-ipt">
+    <label for="reset"  class="filt-lbe">重置</label>
+    <div class="tile men">
+        <img src="http://g-search2.alicdn.com/img/bao/uploaded/i4/i4/T1oemAFv0eXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile women">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i4/TB1i7ZbHpXXXXamXpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile men">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i2/T1_T9fFs4eXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile children">
+        <img src="http://g-search1.alicdn.com/img/bao/uploaded/i4/i2/TB1BWGsHFXXXXX5XXXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile men">
+        <img src="http://g-search2.alicdn.com/img/bao/uploaded/i4/i3/TB1fPfRHpXXXXaWXFXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile women">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i4/TB1i7ZbHpXXXXamXpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile women">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1Wx6EHFXXXXc5XXXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile children">
+        <img src="http://g-search1.alicdn.com/img/bao/uploaded/i4/i4/TB1ILRcHFXXXXXaaXXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile men">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i4/TB1FHMAHFXXXXaKXpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile children">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1135nHVXXXXaqXpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile women">
+        <img src="http://g-search2.alicdn.com/img/bao/uploaded/i4/i2/TB1CPf0HpXXXXXgXXXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile children">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i2/TB1BrE1HpXXXXb.XpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile men">
+        <img src="http://g-search1.alicdn.com/img/bao/uploaded/i4/i2/T1GdKDFwNdXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile men">
+        <img src="http://g-search2.alicdn.com/img/bao/uploaded/i4/i3/TB1POPrHXXXXXakaXXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile children">
+        <img src="http://g-search3.alicdn.com/img/bao/uploaded/i4/i3/TB1L8cjHpXXXXX8XVXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+    <div class="tile women">
+        <img src="http://g-search2.alicdn.com/img/bao/uploaded/i4/i2/TB1jnbnHpXXXXaWXpXXXXXXXXXX_!!0-item_pic.jpg_220x220.jpg_.webp" alt="">
+    </div>
+</div>
+
+<p>
+    原来css过滤器配合上css3有这么强大的功能！本想将最外层div改为textarea，结果发现textarea里面的东西全变成文字了，
+    每个元素都有每个元素的用途。但是你发现没有这个东西并不完美它总会闪烁。原来name和id都是对空格敏感的一些东西。也就说引号中
+    是不能有空额的。
+</p>
+
+<!--scrollLeft,scrollWidth,offsetwidth，clientwidth研究
+----------------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    scrollLeft,scrollWidth,offsetwidth，clientwidth研究
+</h2>
+<p>看图说话</p>
+<img src="images/dhtmopos.gif" alt="" width="609"/>
+
+
+<div class="much-width-box">
+    我的padding是50，蓝色的框padding为40；
+    <div class="much-width-inner">
+        <div class="much-width-scroll">
+            我的高度是600
+        </div>
+    </div>
+</div>
+
+<p>这三个元素下面分别称为元素OUT，SCROLL，INNER</p>
+
+<p>scrollHeight: 获取对象的滚动高度。这是对滚动元素应用的！</p>
+<p>
+    INNER元素的scrollHeight是<span id="scroll_height" style="color:red;"></span>,
+    INNER元素的真实高度是<span id="role_scroll_height" style="color:red;"></span>，结果却是590，
+    这是除了border以外的高度。这就就可以知道
+    “元素在css定义的高度” = offsetHeight = scrollHeight + 2*border-width；<br/>
+    scrollHeight = clientHeight;这是在这个元素在内部无滚动的情况下！就是这里黑色边框元素。
+</p>
+
+<p>
+    SCROLL元素的scrollHeight是<span id="scroll_height_cont" style="color:red;"></span>,
+    SCROLL元素的真实高度是<span id="role_scroll_height_cont" style="color:red;"></span>，其实就是滚动元素的
+    高度+包含滚动元素的padding就是600 + 40 + 40 但是这个东西在火狐和ie上却是640，也就是说只加了一个padding；
+</p>
+
+<P>
+    SCROLL元素的offsetLeft是<span id="offset_left" style="color:red;"></span>,
+    SCROLL元素的clientLeft是<span id="client_left" style="color:red;"></span>.
+    卧槽，clientLeft = border-width，offsetLeft其实就是元素边界都body的边距，不是他到包含他的元素的距离。
+</P>
+
+<p>
+    scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离.其实就是边框到边框之间的距离，
+    不论他们之间有没有padding，或者是margin。
+</p>
+
+<script>
+    window.onload = function (){
+        var box = document.getElementsByClassName("much-width-box")[0];
+        var inner = document.getElementsByClassName("much-width-inner")[0];
+        var scroll = document.getElementsByClassName("much-width-scroll")[0];
+
+        document.getElementById("scroll_height").innerHTML = scroll.scrollHeight + "px";
+        document.getElementById("role_scroll_height").innerHTML = scroll.offsetHeight + "px";
+
+        document.getElementById("scroll_height_cont").innerHTML = inner.scrollHeight + "px";
+        document.getElementById("role_scroll_height_cont").innerHTML = inner.offsetHeight + "px";
+
+        document.getElementById("offset_left").innerHTML = inner.offsetLeft + "px";
+        document.getElementById("client_left").innerHTML = inner.clientLeft + "px";
+    };
+</script>
+
+<!--视区相关单位vw, vh..简介以及可实际应用场景
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    视区相关单位vw, vh..简介以及可实际应用场景
+</h2>
+<p>首先来看一下100vw的效果</p>
+<div class="vw-100" id="vw-100"></div>
+<p>
+    你会发现这样一个现象。在没有竖直滚动条的时候100vw=body.offsetWidth=1920(这里的1920是屏幕最大化的时候);
+    当有竖直滚动条的时候100vw=1920>body.offsetWidth=1903；可以知道100vw是整个视口的宽度而不是body的宽度。
+    其实100vw=window.innerWidth；
+</p>
+<p>这个单位的兼容性并不好，在移动端是还没有支持。</p>
+
+<!--display属性研究
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    display属性研究
+</h2>
+<p>
+    对于display属性大家都熟悉，例如block，inline-block，inline，none，这里研究一些不常有的属性，
+    flex，不再次讨论范围。这个要专门探讨
+</p>
+<p>
+    display有多少属性了，除了上面说的还有
+    flow-root，run-in，list-item，grid，inline-grid，ruby，table，inline-table，table-cell，table-caption，ruby-base，ruby-text
+    是不是很崩溃，是不是好多没有用过！对于grid属性和ruby属于栅格布局，有很少浏览器支持，属于css3，暂时不做研究。有div是可以做表格的
+</p>
+
+<div class="dp-table">
+    <div class="dp-table-row">
+        <div class="dp-table-cell">我是表格</div>
+        <div class="dp-table-cell">我是表格</div>
+    </div>
+    <div class="dp-table-row">
+        <div class="dp-table-cell">我是表格</div>
+        <div class="dp-table-cell">我是表格</div>
+    </div>
+</div>
+<p>你会发现display：table作用是不大的，来考察一下display：table-row</p>
+<div class="grid">
+    <div class="dp-table-row" style="width:20px;height:20px;">
+        table-row;似乎并没什么卵用！
+    </div>
+</div>
+
+<p>
+    display:run-in,官方解释：
+    A run-in box is a box that merges into a block that comes after it,
+    inserting itself at the beginning of that block’s inline-level content.
+    This is useful for formatting compact headlines, definitions, and other similar things,
+    where the appropriate DOM structure is to have a headline preceding the following prose,
+    but the desired display is an inline headline laying out with the text.
+</p>
+<p>
+    翻译过来就是：<br/>
+    把一个元素插入到一个block元素中。是内容更加紧凑！
+</p>
+<dl class="dict">
+    <dt>dictionary</dt>
+    <dd>a book that lists the words of a language in alphabetical
+        order and gives their meaning, or that gives the equivalent
+        words in a different language.
+    </dd>
+    <dt>glossary</dt>
+    <dd>an alphabetical list of terms or words found in or relating
+        to a specific subject, text, or dialect, with explanations; a
+        brief dictionary.
+    </dd>
+</dl>
+
+<p>这里没有出现想要的效果郁闷了呀！</p>
+
+<p>今天下午没什么事情，翻译一篇文章,在公司翻译文章，感觉心里虚，心虚的事情不做，周末回家翻译.</p>
+
+<!--我对float的思考
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    我对float的思考
+</h2>
+
+<p>
+    我们都知道float元素是有高度塌陷现象的，父元素可以同过清除浮动来解决。
+    这里面深层次的原因是什么呢？为什么会有高度塌陷，为什么清除浮动后，就没有了这个现象。
+</p>
+
+<p>
+    思考这样一个问题如果说浮动元素本身不具有高度，宽度，那么文字为什么会环绕浮动排列呢？如果浮动元素具有高度，宽度为什么存在高度塌陷
+    现象呢？
+</p>
+
+<div class="sm-grid l">
+block use float
+</div>
+<div class="grid" style="display: block">
+block
+</div>
+<p>这是一个block元素和一个float元素并排排列，block元素认为float元素是不占有位置的</p>
+
+<div class="sm-grid l">
+
+</div>
+<div class="grid">
+
+</div>
+
+<p>
+    这是一个inline-block元素和float，inline-block元素认为float元素是占位置的。
+</p>
+
+<div class="sm-grid l">
+
+</div>
+
+<div class="sm-grid" style="display: inline">
+我是inline元素
+</div>
+<p>inline元素也是认为block元素占有位置的</p>
+
+<div class="sm-grid dlb">
+
+</div>
+<div class="grid">
+
+</div>
+<p>但是你发现block元素认为inline-block是占有位置的。</p>
+<p>到这里就有问题了，inline-block是个什么东西呢？从名字来看它既有inline属性，又有block属性。</p>
+
+<div class="sm-grid" style="display: inline;">
+我是inline元素。
+</div>
+<div class="grid">
+
+</div>
+<p>你会发现即使是inline元素，block元素也认为是有宽度的。</p>
+
+<div class="sm-grid" style="display: inline;float: left;">
+    inline use float
+</div>
+<div class="grid">
+    block
+</div>
+<p>
+    将block转成float，和inline转成float效果是不一样的。可以和最上面的图坐下对比。为什么会是这个样子呢？
+    这说明inline元素具有block元素所不具有的性质。这个性质可以定义为inline-box；可以这么认为inline元素是具有inline-box的block元素默认
+    是占有一整行的的是不具有inline-box的。
+</p>
+<p>
+    还有一个问题，为什么对inline元素应用了float以后，定义的高度和宽度会其作用而。我们知道inline元素是没有高度和宽度的。这是为什么呢？
+    由此可见float元素是具有块级元素的属性的，宽度和高度。是不是可以这样想对inline元素应用了float就相当于对将这个元素变成了inline-block
+    元素，
+</p>
+<p>
+    那么在思考一下，将一个block元素变为float元素，block元素丢失了什么东西呢？为什么相对于block元素来说他就不占有位置了呢？
+迷茫了，浮动到底是什么鬼？
+</p>
+
+<p>
+    float:元素还是文档流的一部分，absolute元素才是脱了文档流！
+</p>
+
+<!--多背景图片button
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    多背景图片button，ie倒影
+</h2>
+<input type="button" class="button" value="我4个字" /><br />
+<input type="button" class="button" value="我靠，我N多字" /><br />
+<input type="button" class="button" value="上面两位请淡定" /><br />
+<input type="button" class="button" value="一群笨蛋" />
+<p style="white-space: pre-line">
+    ie水平翻转
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+    ie垂直翻转
+    transform:scaleY(-1);
+    /*IE*/
+    filter:FlipV;
+    /*水平翻转*/
+    .flipx { transform: rotateY(180deg); }
+    /*垂直翻转*/
+    .flipy { transform: rotateX(180deg); }
+</p>
+
+<!--网站css架构思考
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    网站css架构思考
+</h2>
+<div style="text-align: center">
+    <img src="images/css_constr.png" alt=""/>
+</div>
+<p>
+    这里面讲的是对css的分离和合并什么样的css样式要分离出来，什么样的css样式要合并进去。<br/>
+    关于分离：例如宽度分离，这就需要里面的元素自适应。居中。
+</p>
+
+
+
+<!--backface-visibility
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    backface-visibility
+</h2>
+<p>
+    backface-visibility 属性定义当元素不面向屏幕时是否可见。
+    如果在旋转元素不希望看到其背面时，该属性很有用。这是什么意思呢？做个例子就知道了。
+    如果说背面不被看到那就是3d旋转。
+</p>
+
+<div class="grid tf3d-box">
+    <div class="sm-grid rt-x180 bf-vb bg-img"></div>
+</div>
+
+<p>
+    由此可见旋转过来以后背面却是看不见了，那么这个东西有什么用呢？
+    除非做一些3d变换的时候有用，一般情况下是用不到的。那么公司项目是为什么这样用呢？
+    这个东西可以做一个翻书效果，对吧。
+</p>
+
+<p>
+    项目中只是自下向上一个动画，应该没有必要做这样一个动画，
+    我们知道动画效果是不会触发回流的。莫非这样做是为了避免触发回流。
+</p>
+
+
+<!--关于负margin探讨与思考
+----------------------------------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    关于负margin探讨与思考
+</h2>
+<p>
+    找到这么一段经典的话
+</p>
+
+<p>
+    负边距对这些由文档流控制的元素的作用是，会使它们在文档流中的位置发生偏移，
+    但这种偏移不同于相对定位，通过相对定位偏移后，其仍然会坚守着它原来占据的空间，
+    不会让文档流的其它元素乘虚而入。而通过负边距进行偏移的元素，它会放弃偏移前占据的空间，
+    这样它后面文档流中的其它元素就会“流”过来填充这部分空间。还是通过例子来说明吧。
+    现在我们把上图中的块状元素、行内元素以及inline-block元素都设一个负边距 margin:-10px;
+    看看会发生什么：
+</p>
+
+<p class="bdc">
+    我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效果我是文字我是文字，
+    看看有什么效果我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效果
+    <span class="grid dlb" style="vertical-align: bottom">
+        这样就对了。。阿打算了地方撒旦法师
+    </span>我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效果
+</p>
+
+<p>加上margin：负值后的效果是:</p>
+
+<div  class="bdc">
+    <div style="width: 100%;height: 20px;background: #c2a5d1;margin: -10px;"></div>
+    我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效
+    果我是文字我是文字，
+    看看有什么效果我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效果
+    <span class="grid dlb" style="vertical-align: bottom;margin:-10px;">
+        这样就对了。。阿打算了地方撒旦法师
+    </span>我是文字我是文字，看看有什么效果我是文字我是文字，看看有什么效果
+</div>
+
+<p>
+    负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候，
+    会认为负边距把元素的尺寸减小了，因为位置也就发生变化了。这只是打个很形象的比喻，帮助大家理解一下。
+    还要注意的是，文档流只能是后面的流向前面的，即文档流只能向左或向上流动，不能向下或向右移动。
+    所以，一切只要是由文档流决定的东西，负边距就能起作用了。
+</p>
+
+<p>
+    总之一句话，在文档流中元素的最终边界是有margin决定的。margin为负的时候元素的边界向里收缩。
+    不管你定义的高度，宽度。
+</p>
+
+<p>你会看到margin-right：-100px，反倒是这个元素增大了，这是为什么呢？</p>
+<div class="bdc" style="width:400px;margin:0 auto;display: inline-block;">
+    <div style="background: #d3a6d1;height:50px;margin-right:-100px;"></div>
+</div>看到这行文字了吗？
+
+<p>突然间明白了，由于没有定义宽度，margin为负值，当然元素要溢出了。自然就变大了。定义了宽度就不一样了。</p>
+
+<p>反过来思考一下，如果父元素应用了margin：-100px会怎么样呢？</p>
+<div class="bdc" style="width:400px;margin-right:-100px;">
+    <div style="background: #d3a6d1;height:50px;"></div>
+</div>
+<p>
+    他的子元素没变化。也就是说margin负值是不对元素内部的子元素造成影响的。也就是说margin，可以对自身造成影响，
+    对相邻的元素造成影响，对内部的元素没有影响。
+</p>
+
+<p>margin负值对float元素的影响和inline-block影响是一样的。如下</p>
+<div class="grid" style="width:500px;">
+    <div class="sm-grid l" style="margin-right:-50px;"></div>
+    <div class="sm-grid l"></div>
+</div>
+
+<div class="grid" style="width:500px;">
+    <div class="sm-grid dlb" style="margin-right:-50px;"></div>
+    <div class="sm-grid dlb"></div>
+</div>
+
+<p>
+    突然感觉这样可以做一些扑克牌一样的布局。
+</p>
+
+<p>
+    利用margin负值可以做经典的绝对定位居中布局，这里不再距离。
+</p>
+
+<p>
+    通过上面的理解对于这个问题是不是可以这样理解padding-right: 20px;margin-right: -20px;
+</p>
+
+<p>
+元素本身变大了但是里面包裹的元素却不变。似乎没什么毛线用，谁能告诉我用什么用？
+</p>
+
+<!--理解SVG transform坐标变换
+-------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    理解SVG transform坐标变换
+</h2>
+
+<svg width="200" height="150">
+    <rect x="30" y="30" width="120" height="90" transform="rotate(45)"></rect>
+</svg>
+
+<div class="tf-45"></div>
+
+<p>
+    由上面两个图的对比可以发现，在默认情况下svg的旋转和css3的旋转还是有所不同的。svg是以左上角为旋转位置，而css3默认
+    的旋转位置是矩形的中心。当然css3可以设置旋转位置。并且这个旋转位置可以自由定义。
+</p>
+
+<div class="tf-45 tf-org-tl"></div>
+
+<h3>SVG transform translate</h3>
+
+<svg width="500" height="350" stroke-width="1">
+    <rect x="30" y="30" width="120" height="90" transform="translate(100,50)"></rect>
+</svg>
+
+<div class="tf-45 tf-tl"></div>
+
+<p>张老师说一样，我这里结果却不一样，我国我从理论上思考应该是一样的。</p>
+<svg  width="500" height="150">
+    <rect x="30" y="30" width="120" height="90" rx="10" ry="10" fill="#a0b3d6" transform="rotate(45, 90 75) rotate(-45)"></rect>
+</svg>
+<p>
+    这里的transform="rotate(45, 90 75)是中心点旋转，后面的是旋转坐标。同时这说明并没有旋转到应该在的位置，
+    说明前后两次旋转对应旋转中心点并不一样。用css是能回到原来的位置的。
+</p>
+
+<svg  width="500" height="150">
+    <rect x="30" y="30" width="120" height="90" rx="10" ry="10" fill="#a0b3d6" transform="translate(95 75) scale(1, 1.5) translate(-95 -75)"></rect>
+</svg>
+<p>不难发现svg并没有回到原来的位置，这里的scale不止是元素本身的缩放，还包括上面和左边距的缩放。</p>
+<p>
+    svg的旋转偏移效果的旋转中心的位置也可可以设置的。属性是viewBox，例如
+</p>
+<p>
+    张老师的这张图说的很明白,左边是css，右边是svg。
+</p>
+<img src="images/svg-transforms-fig7.png" alt=""/>
+<svg width="200" height="150" viewBox='-30 0 64 100' >
+    <rect x="30" y="30" width="120" height="90" transform="rotate(45)"></rect>
+</svg>
+
+<p>
+    理解SVG的viewport,viewBox,preserveAspectRatio
+</p>
+
+<p>
+    viewport：是svg的视口大小，就是&lt;svg  width="500" height="150"&gt;&lt;/svg&gt;这里的500和150
+</p>
+<p>
+    viewBox="x, y, width, height"  // x:左上角横坐标，y:左上角纵坐标，width:宽度，height:高度
+</p>
+
+<svg width="400" height="300" viewBox="0,0,40,30" style="border:1px solid #cd0000;">
+    <rect x="10" y="5" width="20" height="15" fill="#cd0000"/>
+</svg>
+<p>
+    你也许会感到很惊讶，怎么会这么大，原因如下图，他是把viewbox里面的元素放到了svgviewport中显示了。
+</p>
+<img src="images/2014-08-27_105046-viewbox.gif" alt=""/>
+<p>
+    这个属性应该如何应用还有待研究。
+</p>
+<!--不使用float实现三列并排的方法。
+-------------------------------------------------------------------------------------->
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    实现并排的4中方法
+</h2>
+<h4>应用了inlie-block元素margin负值不变大的特性，和position：relative元素，会排到上面的特性</h4>
+<div style="border:1px solid black;width:100%;height: 50px;font-size: 0">
+    <div style="display:inline-block;height: 25px;width:148px;background:red;position:relative;"></div>
+    <div style="display:inline-block;width:100%;margin:0 -99px 0 -147px;background:#a1d222;height: 25px;padding:0 105px 0 150px;box-sizing:border-box;font-size:16px;vertical-align: top;">hello</div>
+    <div style="display:inline-block;height: 25px;width:98px;background:blue;"></div>
+</div>
+<h4>这个是最常用的也是使用起来最方便的。</h4>
+<div style="border:1px solid black;width:100%;height: 50px;">
+    <div style="float:left;height: 25px;width:148px;background:red;"></div>
+    <div style="float:right;width:100px;background:blue;height: 25px;"></div>
+    <div style="height: 25px;background:#a1d222;overflow:hidden;">hello</div>
+</div>
+<h4>应用了positon：absolute</h4>
+<div style="border:1px solid black;width:100%;height: 50px;position:relative;">
+    <div style="position:absolute;height: 25px;width:148px;background:red;top:0;left:0;"></div>
+    <div style="position:absolute;top:0;right:0;width:100px;background:blue;height: 25px;"></div>
+    <div style="height: 25px;background:#a1d222;padding:0 105px 0 150px;overflow:hidden;">hello</div>
+</div>
+<h4>应用了justify，和margin负值。</h4>
+<div style="border:1px solid black;width:100%;height: 50px;text-align: justify;">
+    <div style="height: 25px;background:#a1d222;padding:0 105px 0 150px;">hello</div>
+    <div style="display:inline-block;height: 25px;width:148px;background:red;margin-top:-25px;vertical-align: top;"></div>
+    <div style="display:inline-block;width:100px;background:blue;height: 25px;margin-top:-25px;vertical-align: top;"></div>
+    <div style="display:inline-block;width:100%;"></div>
+</div>
+
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+   两列或多列等高排列方法。
+</h2>
+<h4>利用border模仿等高</h4>
+<div style="border:1px solid black;width:100%;position:relative;">
+    <div style="width:200px;border-right:200px solid #23a127;background-color: #00adee;margin-right:-180px;display:inline-block;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候， 会认为负边距把元素的尺寸减小了，
+        因为位置也就发生变化了。这只是打个很形象的比喻，帮助大家理解一下。 还要注意的是，文
+    </div>
+    <div style="display: inline-block;vertical-align: top;width:150px;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事
+    </div>
+</div>
+<h4>利用padding:1000;margin:-1000;和外面wrap的overflow：hidden实现登高布局。</h4>
+
+<h4>利用dispaly：table-cell,这样有一个缺点，margin将没有作用。</h4>
+<div style="display:table-row">
+    <div style="display: table-cell;width:200px;background-color:#a1d222;margin:0 10px;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候， 会认为负边距把元素的尺寸减小了，
+        因为位置也就发生变化了。这只是打个很形象的比喻，帮助大家理解一下。 还要注意的是，文
+    </div>
+    <div style="display: table-cell;width:200px;background-color:#a1d222;margin:0 10px;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事
+    </div>
+    <div style="display: table-cell;width:200px;background-color:#a1d222;margin:0 10px;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候， 会认为负边距把元素的尺寸减小了，
+        因为位置也就发生变化了。这只是打个很形象的比喻，
+    </div>
+</div>
+<h4>最后一个等高布局比较高端，我要回去在学习一下</h4>
+
+<h4>自己再发明一种</h4>
+<div style="border:1px solid black;width:100%;text-align: justify;">
+    <div style="display:inline-block;width:200px;vertical-align: top;background:#126a35;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事
+        <div style="vertical-align: bottom">&nbsp;</div>
+    </div>
+    <div style="display:inline-block;width:200px;background-color: #950af0;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事实上，它的尺寸大小并没变，只是文档流在计算元素位置的时候， 会认为负边距把元素的尺寸减小了，
+        因为位置也就发生变化了。这只是打个很形象的比喻，
+    </div>
+    <div style="display:inline-block;width:200px;vertical-align: top;background:#126a35;">
+        负的边距好像能减小元素在文档流中的尺寸一样，但事
+        <div style="vertical-align: bottom">&nbsp;</div>
+    </div>
+    <div style="display: inline-block;width:100%;"></div>
+</div>
+<h2 style="border:3px solid black;margin:10px 0;text-align: center">
+    对浮动的理解。就是为了文字环绕。
+</h2>
+<div style="border:1px solid black;" class="dsf">
+    <div style="width:200px;height: 300px;background-color: #12a2d3;float:left;"></div>
+    <div style="width:900px;height:200px;background-color: #bb02af;display:inline-block;"></div>
+    <div style="width:1000px;height: 200px;background-color: #123a6b;display:inline-block;"></div>
+    <div style="width:300px;height: 100px;background-color: #008d4c;display:inline-block;"></div>
+</div>
+</body>
+</html>
