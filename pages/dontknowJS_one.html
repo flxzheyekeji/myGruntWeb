@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>youdonknowJs</title>
+	<style>
+		h1{
+			border-bottom: 3px solid black;
+			text-align: center;;
+		}
+		p{
+			border-left:3px solid indianred;
+			padding-left:10px;
+			white-space:pre-line;
+		}
+		code{
+			white-space:pre-line;
+		}
+	</style>
+</head>
+<body>
+<h1>第一章小结</h1>
+<p>
+	三个重要的名字：编译器，引擎，作用域。
+	编译器：编译，解析代码，生成可执行代码。
+	引擎：执行代码。
+	作用阈：管理变量。在词法分析的时候确定的作用域，而不是在编译的过程中确定的。
+	var a = 2;先执行var a，声明出来一个变量a。然后对a执行左查询。然后对a赋值。放到作用域中。
+	这里关键涉及到左查询和有查询的区别问题。以及两个重要的错误：ReferenceError,和TypeError。
+	执行右查询找不到其实返回错误：ReferenceError；
+	对变量进行错误操作返回：TypeError；
+</p>
+<h1>第二章小结</h1>
+<p>
+	这讲的是词法作用域，js的作用域在函数定义的时候就定义了下来。词法分析器处理代码的时候会保持这个作用域不变。
+	以及词法作用域的查找过程。接下来就是用eval和with，修改词法作用域，由于js词法解释器会在编译前做性能优化，
+	所以不要用这样影响性能的东西。并且有可能会造成变量泄漏。
+</p>
+<h1>第三章小结</h1>
+<p>
+	函数作用域是指：在函数内部定义的变量在函数内部所有的地方都可以调用。并且js中只有函数作用域没有块状作用域，
+	es6中出现了let，这就允许了有块状作用域的存在。
+	const用来定义常量不能修改。try,catch也可以定义作用域块。
+	并且在catch块中可以读取try中的变量，但是try中不能读取catch中的变量。
+	之所以要出现let是要遵循最小权限原则，内部函数不要把接口都暴露的外部。
+	这样的好处是：能减少内存利用，并且安全，代码容易移植。
+	注意这一章里面的let例子值得借鉴。
+
+</p>
+<h1>第四章小结</h1>
+<p>
+	包括变量和函数在内的所有声明都会在任何代码执行前首先被处理：这就是所谓的变量提升。
+	注意函数声明会被提升函数表达式不会被提升。
+	是不是可以这样理解js是先解析，后编译，在执行。这样就能讲通了。
+	对于同名的函数和变量，函数名字会覆盖变量名字。
+</p>
+<h1>第五章小结</h1>
+<p>
+	闭包：在函数声明作用域以外，调用这个函数。这是就产生了闭包。因为这个函数保留了对所在作用域的引用。
+	将函数进行值类型传递，使用了回调函数，那么他就是闭包。
+	循环体内的函数:
+	<code>
+		(function (){
+			for(var i=0;i<=5;i++){
+				(function(i){
+					setTimeout(function(){
+						console.log(i);
+					},0)
+				})(i)
+			}
+		})();
+	</code>
+	注意函数里面的i只是对，循环里面的i的引用，而不是一个副本。把它做成函数内的局部变量就可以了。
+	然后模块：现代模块指的是amd规范，cmd规范。将来模块：指的是es6模块。
+</p>
+<h1>动态作用域</h1>
+<p>
+	词法作用域是写代码时或定义时确定的。而动态作用域是运行是决定的。
+	词法作用域关注词法在何处声明，动态作用域关注函数在何处调用。
+</p>
+<h1>块状作用域的替代方案</h1>
+<p>
+	在es6之前js大部分只有函数作用域，只有try，catch是块状作用域，例如
+	try｛throw 2｝catch(a){console.log(a) //a} console.log(a) //Reference
+	try catch有性能问题。如果不想要块状作用域继续使用var就行了。
+</p>
+<h1>this词法</h1>
+<p>
+	=>箭头函数将this同词法作用域联系在一起。
+</p>
+<script src="../js/youDontKnowJS/partOne.js"></script>
+<!--<script src="../js/youDontKnowJS/partTwo.js"></script>-->
+</body>
+</html>

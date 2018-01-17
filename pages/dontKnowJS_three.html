@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>你不知道的JS</title>
+	<style>
+		h1{
+			border-bottom: 3px solid black;
+			text-align: center;
+		}
+		p{
+			border-left:3px solid indianred;
+			padding-left:10px;
+			white-space:pre-line;
+			margin-bottom: 10px;
+		}
+		code{
+			white-space:pre-line;
+		}
+	</style>
+</head>
+<body>
+<h1>对象小结</h1>
+<p>
+	Object,Function,Array,RegExp,无论文字还是构造函数都是对象。
+	null,undefiend,没有构造形式。
+	Date没有文字形式。
+	字符串，数字，对文字形式调用方法，会自动封装为对象。
+</p>
+<p>
+	对象内部的值不是存储到对象内部，存储到对象内部的对象的属性，
+	注意把configurable是单向操作无法撤销。
+	注意访问属性和访问作用域中的变量是不一样的。如果没有找到对象属性会返回undefined，
+	变量没找到会返回referenceError。
+</p>
+<p>
+	in操作符会检查原型链，hasOwnProperty只会检查该对象本身。
+</p>
+<h1>混合对象：类</h1>
+<p>
+	给对象的属性赋值（myobject.fo = "name"）会出像四种情况
+	0.如果原型链上和该对象都没有fo属性，就在该对象上添加该属性。
+	1.在该对象（myobject）原型链上存在一个（fo），并且该属性没有被标记为只读，
+		那么会直接再改对象上（myobject）添加一个fo新属性。
+	2.如果原型链上存在，并且标记为只读，这是会报错。
+	3.如果原型链上存在并且有（setter）方法。就会修改原型链上的属性。
+</p>
+</body>
+</html>

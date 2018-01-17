@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js设计模式</title>
+</head>
+<style>
+	h1{
+		border-bottom:1px solid black;
+		text-align: center;
+	}
+	p{
+		border-left: 3px solid brown;
+		white-space: pre-line;
+	}
+	qu{
+		background-color: yellowgreen;
+	}
+</style>
+<body>
+<h1>第一章</h1>
+<p>
+	多态：对一个函数传入不同的参数表现出不同的行为。背后的思想是谁做和做什么之间的分离。
+	用于抽象出不同的对象之间有共同的行为。
+	JS的多态性是与生俱来的，因为他是动态语言，只有在运行起来才知道对象的类型。这里越来越会体现出JS
+	高阶函数的重要性。
+	封装：封装的目的在于隐藏信息。例如c#里面有protected，private，等类型但是JS没有。封装的目的不只是数据
+	还有对象的实现细节，设计细节。封装类型，封装实现，封装变化。
+</p>
+<h1>第二章：this，call，apply</h1>
+<qu>
+	问题：当函数被作为构造函数调用时this指向什么东西呢？
+</qu>
+<p>
+	当作构造器调用时this指向返回的这个对象。
+</p>
+<h1>第三章：高阶函数闭包</h1>
+<p>
+	函数柯里化：先运行函数的部分参数，然后进行另一部分运算；
+	函数节流：不让一些函数在一定时间内运行多次。例如：onresize，sollce等。
+				相当于lodash里面的去抖函数
+
+</p>
+
+
+<script src="../js/JS-module/partOne.js"></script>
+</body>
+</html>
